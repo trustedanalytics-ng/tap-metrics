@@ -1,0 +1,57 @@
+@startuml
+
+title Metrics system in TAP
+
+actor User as user
+actor Operator as operator
+
+package TAP {
+
+    frame "Console" as console {
+
+    }
+
+    frame "Metrics system" {
+
+        [API] as api
+        [Collector] as collector
+        database InfluxDB as db
+        [Direct view\nTBD exising solution] as dview
+    }
+
+    folder "Metrics providres" {
+
+        [From K8S API] as k8s
+        [From Catalog] as catalog
+        [From Data Catalog] as dcatalog
+        [From ? TAP Components status endpoints] as tcomponents
+    }
+
+    [K8S API] as tapk8s
+    [Catalog] as tapcatalog
+    [Data Catalog] as tapdcatalog
+    [TAP Components status endpoints] as taptcomponents
+}
+
+user        -r->     console
+operator    -r->     dview
+
+console     -->     api         :   REST
+dview       -->     db          :   native
+
+db          <-->    api         :   native
+collector   -->     db          :   native
+
+
+k8s         -l->     collector       :   GRPC
+catalog     -l->     collector       :   GRPC
+dcatalog    -l->     collector       :   GRPC
+tcomponents -l->     collector       :   GRPC
+
+k8s         -r->     tapk8s
+catalog     -r->     tapcatalog
+dcatalog    -r->     tapdcatalog
+tcomponents -r->     taptcomponents
+
+
+@enduml
