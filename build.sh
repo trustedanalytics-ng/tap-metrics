@@ -18,6 +18,15 @@ go build -v
 cd -
 
 
+echo " *** Build: presenter ***"
+cd presenter
+
+go build -v
+docker build -t metrics-presenter:v0.1 .
+
+cd -
+
+
 echo -e "\n\n *** Build: TAP Catalog metrics collector ***\n"
 cd collectors/tap_catalog
 go build -v

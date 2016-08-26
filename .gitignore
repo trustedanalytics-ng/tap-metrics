@@ -8,5 +8,6 @@
 *.iml
 
 # binaries
+presenter/presenter
 collectors/tap_catalog/tap_catalog
 
