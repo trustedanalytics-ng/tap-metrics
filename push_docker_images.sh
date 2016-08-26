@@ -2,12 +2,10 @@
 
 set -e
 
-DOCKER_REPOSITORY=${DOCKER_REPOSITORY:-$REPOSITORY_URL}
-
 function push() {
     echo -e "\n *** Pushing image: $1 ***\n"
-    docker tag $1 $DOCKER_REPOSITORY/$1
-    docker push $DOCKER_REPOSITORY/$1
+    docker tag $1 $DOCKER_REGISTRY/$1
+    docker push $DOCKER_REGISTRY/$1
 }
 
 echo -e "\n ****** Pushing Docker images ******\n\n"
