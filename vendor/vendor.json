@@ -1,6 +1,230 @@
 {
 	"comment": "",
 	"ignore": "test",
-	"package": [],
+	"package": [
+		{
+			"checksumSHA1": "htjvdG/znrHmFYRQBqA2vHrJsF4=",
+			"path": "github.com/Sirupsen/logrus",
+			"revision": "f3cfb454f4c209e6668c95216c4744b8fddb2356",
+			"revisionTime": "2016-06-01T11:32:10Z"
+		},
+		{
+			"checksumSHA1": "f1wARLDzsF/JoyN01yoxXEwFIp8=",
+			"path": "github.com/docker/distribution/digest",
+			"revision": "1fc752c7184a2bdcbeb26ad90eba80f9fd9c76bf",
+			"revisionTime": "2016-06-13T23:29:35Z"
+		},
+		{
+			"checksumSHA1": "PzXRTLmmqWXxmDqdIXLcRYBma18=",
+			"path": "github.com/docker/distribution/reference",
+			"revision": "1fc752c7184a2bdcbeb26ad90eba80f9fd9c76bf",
+			"revisionTime": "2016-06-13T23:29:35Z"
+		},
+		{
+			"checksumSHA1": "KDCoIh4T554gv1NBSaHUZJgwfGs=",
+			"path": "github.com/docker/engine-api/client",
+			"revision": "5fd66ece9e8b143d0746a765cd16e4ad6f1e4654",
+			"revisionTime": "2016-06-14T07:38:47Z"
+		},
+		{
+			"checksumSHA1": "RcYDLK+XW1lSLDMSsLVQwepjV3Y=",
+			"path": "github.com/docker/engine-api/client/transport",
+			"revision": "5fd66ece9e8b143d0746a765cd16e4ad6f1e4654",
+			"revisionTime": "2016-06-14T07:38:47Z"
+		},
+		{
+			"checksumSHA1": "wikpK0reQAzlvDdqZ5FvO7IaYNE=",
+			"path": "github.com/docker/engine-api/client/transport/cancellable",
+			"revision": "5fd66ece9e8b143d0746a765cd16e4ad6f1e4654",
+			"revisionTime": "2016-06-14T07:38:47Z"
+		},
+		{
+			"checksumSHA1": "dEkK69QvHiQEboy9Qexb1feoFnI=",
+			"path": "github.com/docker/engine-api/types",
+			"revision": "5fd66ece9e8b143d0746a765cd16e4ad6f1e4654",
+			"revisionTime": "2016-06-14T07:38:47Z"
+		},
+		{
+			"checksumSHA1": "ry5lgawDzJEEFNOgiLkAj7yJH6E=",
+			"path": "github.com/docker/engine-api/types/blkiodev",
+			"revision": "5fd66ece9e8b143d0746a765cd16e4ad6f1e4654",
+			"revisionTime": "2016-06-14T07:38:47Z"
+		},
+		{
+			"checksumSHA1": "NGO3I6/Vo8khqYO+EbeQgdqIggA=",
+			"path": "github.com/docker/engine-api/types/container",
+			"revision": "5fd66ece9e8b143d0746a765cd16e4ad6f1e4654",
+			"revisionTime": "2016-06-14T07:38:47Z"
+		},
+		{
+			"checksumSHA1": "hZV62Xzt/i0e/WBKWww3rpkRAR4=",
+			"path": "github.com/docker/engine-api/types/filters",
+			"revision": "5fd66ece9e8b143d0746a765cd16e4ad6f1e4654",
+			"revisionTime": "2016-06-14T07:38:47Z"
+		},
+		{
+			"checksumSHA1": "Khzf7tXOZxxJy/5BCHD3aINtyU8=",
+			"path": "github.com/docker/engine-api/types/network",
+			"revision": "5fd66ece9e8b143d0746a765cd16e4ad6f1e4654",
+			"revisionTime": "2016-06-14T07:38:47Z"
+		},
+		{
+			"checksumSHA1": "DrGaE4uA19LswH15o/LVYxs7TgE=",
+			"path": "github.com/docker/engine-api/types/reference",
+			"revision": "5fd66ece9e8b143d0746a765cd16e4ad6f1e4654",
+			"revisionTime": "2016-06-14T07:38:47Z"
+		},
+		{
+			"checksumSHA1": "Yto1DJP+S7aiRrNiEqDDqxe+mSo=",
+			"path": "github.com/docker/engine-api/types/registry",
+			"revision": "5fd66ece9e8b143d0746a765cd16e4ad6f1e4654",
+			"revisionTime": "2016-06-14T07:38:47Z"
+		},
+		{
+			"checksumSHA1": "Mgvb6aJiQKpzcOQy5LpfpWrM5L0=",
+			"path": "github.com/docker/engine-api/types/strslice",
+			"revision": "5fd66ece9e8b143d0746a765cd16e4ad6f1e4654",
+			"revisionTime": "2016-06-14T07:38:47Z"
+		},
+		{
+			"checksumSHA1": "gZCXpHrciZNMm7H98w+cS5qhHBk=",
+			"path": "github.com/docker/engine-api/types/swarm",
+			"revision": "5fd66ece9e8b143d0746a765cd16e4ad6f1e4654",
+			"revisionTime": "2016-06-14T07:38:47Z"
+		},
+		{
+			"checksumSHA1": "NXxuzwsg/CA+CM56b+ViwOdO9T0=",
+			"path": "github.com/docker/engine-api/types/time",
+			"revision": "5fd66ece9e8b143d0746a765cd16e4ad6f1e4654",
+			"revisionTime": "2016-06-14T07:38:47Z"
+		},
+		{
+			"checksumSHA1": "AE3TTpPWvv9ic71FiF0HnRr46mE=",
+			"path": "github.com/docker/engine-api/types/versions",
+			"revision": "5fd66ece9e8b143d0746a765cd16e4ad6f1e4654",
+			"revisionTime": "2016-06-14T07:38:47Z"
+		},
+		{
+			"checksumSHA1": "lEqVJt7+iIa0nMKYWIUoQhh9VTM=",
+			"path": "github.com/docker/go-connections/nat",
+			"revision": "990a1a1a70b0da4c4cb70e117971a4f0babfbf1a",
+			"revisionTime": "2016-06-08T02:44:54Z"
+		},
+		{
+			"checksumSHA1": "3sQ35fcqLJRnyTqaZn8Zb9l97uk=",
+			"path": "github.com/docker/go-connections/sockets",
+			"revision": "990a1a1a70b0da4c4cb70e117971a4f0babfbf1a",
+			"revisionTime": "2016-06-08T02:44:54Z"
+		},
+		{
+			"checksumSHA1": "xGJFkVcAiqRU53KFeF9tJuHUiJY=",
+			"path": "github.com/docker/go-connections/tlsconfig",
+			"revision": "990a1a1a70b0da4c4cb70e117971a4f0babfbf1a",
+			"revisionTime": "2016-06-08T02:44:54Z"
+		},
+		{
+			"checksumSHA1": "Ufrex/PpclfqVToYNvjB1y4dg0A=",
+			"path": "github.com/docker/go-units",
+			"revision": "f2d77a61e3c169b43402a0a1e84f06daf29b8190",
+			"revisionTime": "2016-06-13T21:20:13Z"
+		},
+		{
+			"checksumSHA1": "v5hP3KStqhaz1ejU3Y2ndUrL9nA=",
+			"path": "github.com/gocraft/web",
+			"revision": "c8ca29bc8a1cec97abe95c662e29dd8d31aff6e3",
+			"revisionTime": "2016-07-11T12:45:36Z"
+		},
+		{
+			"checksumSHA1": "BoXdUBWB8UnSlFlbnuTQaPqfCGk=",
+			"origin": "github.com/trustedanalytics/tapng-image-factory/vendor/github.com/op/go-logging",
+			"path": "github.com/op/go-logging",
+			"revision": "c13c4751e10dcf592d2bcc6c8615a51e5ba5df3d",
+			"revisionTime": "2016-08-19T14:53:29Z"
+		},
+		{
+			"checksumSHA1": "3AoPMXlmVq2+iWMpsdJZkcUKHB8=",
+			"path": "github.com/opencontainers/runc/libcontainer/user",
+			"revision": "42dfd606437b538ffde4f0640d433916bee928e3",
+			"revisionTime": "2016-06-14T06:19:20Z"
+		},
+		{
+			"checksumSHA1": "/F9F5OrsdGnwxZEN/TDdyvpE/FU=",
+			"path": "github.com/robfig/cron",
+			"revision": "6f2e8282a1a0d694e55a48ce7d077ee46747feeb",
+			"revisionTime": "2016-05-30T13:40:00Z"
+		},
+		{
+			"checksumSHA1": "rKV8YLkXpeNG1Oix8hlYqVsEFb4=",
+			"path": "github.com/streadway/amqp",
+			"revision": "2e25825abdbd7752ff08b270d313b93519a0a232",
+			"revisionTime": "2016-03-11T21:55:03Z"
+		},
+		{
+			"checksumSHA1": "X/vMXvMLEwkB/RptSd4TnvfSohs=",
+			"path": "github.com/trustedanalytics/tapng-blob-store/client",
+			"revision": "72f22292d99ce1fa4e56e8263f24f28e94887c10",
+			"revisionTime": "2016-08-23T13:08:35Z"
+		},
+		{
+			"checksumSHA1": "RGWQZW1Et9qww2YmL608obhsMRE=",
+			"path": "github.com/trustedanalytics/tapng-catalog/client",
+			"revision": "582defe950d2b2621d95c263d8be4c06cc33e9df",
+			"revisionTime": "2016-08-24T07:39:22Z"
+		},
+		{
+			"checksumSHA1": "05UT2j6zwYv1aNbMQ0yunk58+QA=",
+			"path": "github.com/trustedanalytics/tapng-catalog/models",
+			"revision": "582defe950d2b2621d95c263d8be4c06cc33e9df",
+			"revisionTime": "2016-08-24T07:39:22Z"
+		},
+		{
+			"checksumSHA1": "FHH5vvuyglwKP3h05rYJdf29KQg=",
+			"path": "github.com/trustedanalytics/tapng-go-common/http",
+			"revision": "46eec003e59e0963a0feb2df001ca2271dacad99",
+			"revisionTime": "2016-08-19T14:17:01Z"
+		},
+		{
+			"checksumSHA1": "RVbaAnp5aHoeOAwEiyyd7EHax+w=",
+			"path": "github.com/trustedanalytics/tapng-go-common/logger",
+			"revision": "46eec003e59e0963a0feb2df001ca2271dacad99",
+			"revisionTime": "2016-08-19T14:17:01Z"
+		},
+		{
+			"checksumSHA1": "uy1dWe+cZBlJvG9+8+8eCteT/IA=",
+			"path": "github.com/trustedanalytics/tapng-go-common/util",
+			"revision": "46eec003e59e0963a0feb2df001ca2271dacad99",
+			"revisionTime": "2016-08-19T14:17:01Z"
+		},
+		{
+			"checksumSHA1": "9LO7PnDnzItB90IExhJgHDs331w=",
+			"path": "github.com/trustedanalytics/tapng-image-factory/app",
+			"revision": "c13c4751e10dcf592d2bcc6c8615a51e5ba5df3d",
+			"revisionTime": "2016-08-19T14:53:29Z"
+		},
+		{
+			"checksumSHA1": "U8/9eBKkILjtMc9rJb2A3kIrEY4=",
+			"path": "github.com/trustedanalytics/tapng-image-factory/logger",
+			"revision": "c13c4751e10dcf592d2bcc6c8615a51e5ba5df3d",
+			"revisionTime": "2016-08-19T14:53:29Z"
+		},
+		{
+			"checksumSHA1": "9jjO5GjLa0XF/nfWihF02RoH4qc=",
+			"path": "golang.org/x/net/context",
+			"revision": "3f122ce3dbbe488b7e6a8bdb26f41edec852a40b",
+			"revisionTime": "2016-06-09T04:57:12Z"
+		},
+		{
+			"checksumSHA1": "LvdVRE0FqdR68SvVpRkHs1rxhcA=",
+			"path": "golang.org/x/net/proxy",
+			"revision": "3f122ce3dbbe488b7e6a8bdb26f41edec852a40b",
+			"revisionTime": "2016-06-09T04:57:12Z"
+		},
+		{
+			"checksumSHA1": "+ywZWOh4ZI2zDXWb6nIquOnKlIM=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "7f918dd405547ecb864d14a8ecbbfe205b5f930f",
+			"revisionTime": "2016-06-02T08:11:10Z"
+		}
+	],
 	"rootPath": "github.com/trustedanalytics/metrics"
 }

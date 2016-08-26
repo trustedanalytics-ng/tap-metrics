@@ -7,4 +7,6 @@
 .idea/
 *.iml
 
+# binaries
+collectors/tap_catalog/tap_catalog
 
