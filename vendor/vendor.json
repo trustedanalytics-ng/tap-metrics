@@ -135,6 +135,24 @@
 			"revisionTime": "2016-07-11T12:45:36Z"
 		},
 		{
+			"checksumSHA1": "z/2xsrJamaC3QABBwWSJZWmK2TE=",
+			"path": "github.com/influxdata/influxdb/client/v2",
+			"revision": "a0004b68577cdbfc921463404eab839c50f14a0c",
+			"revisionTime": "2016-08-15T19:21:35Z"
+		},
+		{
+			"checksumSHA1": "kETh9GxyD58CZg8S4ZNfVCJNyx0=",
+			"path": "github.com/influxdata/influxdb/models",
+			"revision": "a0004b68577cdbfc921463404eab839c50f14a0c",
+			"revisionTime": "2016-08-15T19:21:35Z"
+		},
+		{
+			"checksumSHA1": "3whhUQgHbzSoO16vbx/XMCkg6Bs=",
+			"path": "github.com/influxdata/influxdb/pkg/escape",
+			"revision": "a0004b68577cdbfc921463404eab839c50f14a0c",
+			"revisionTime": "2016-08-15T19:21:35Z"
+		},
+		{
 			"checksumSHA1": "BoXdUBWB8UnSlFlbnuTQaPqfCGk=",
 			"origin": "github.com/trustedanalytics/tapng-image-factory/vendor/github.com/op/go-logging",
 			"path": "github.com/op/go-logging",
@@ -224,6 +242,12 @@
 			"path": "golang.org/x/sys/unix",
 			"revision": "7f918dd405547ecb864d14a8ecbbfe205b5f930f",
 			"revisionTime": "2016-06-02T08:11:10Z"
+		},
+		{
+			"checksumSHA1": "UYvcpB3og7YJHbRu4feZFxXAU/A=",
+			"path": "gopkg.in/square/go-jose.v1/json",
+			"revision": "e3f973b66b91445ec816dd7411ad1b6495a5a2fc",
+			"revisionTime": "2016-05-02T21:53:29Z"
 		}
 	],
 	"rootPath": "github.com/trustedanalytics/metrics"
