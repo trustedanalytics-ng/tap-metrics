@@ -37,3 +37,34 @@ NEEDS HEAPSTER TO COLLECT DATA RELATED TO CLUSTER PERFORMANCE AND STATE
 * Retention Policy in Influx to store data newer than X (3 days?)
 
 
+
+## Note
+
+It could be designed in different way (analogous to /healthz):
+
+* metrics are provided by apps
+
+  * app that wants to expose metrics adds annotation to it's service
+  * annotation value specifies which port and RESTpath to query (preferably /metricsz). It also can specify how often query should happen
+  * app serves metrics in one of formats accepted by InfluxDB
+  * format is recoginzed based on HTTP header with fall back to default one
+
+* metrics service is regularly querying K8S api to discover such services
+* metrics service queries those services on specified endpoints
+* metrics service is integrated with some dashboard technology stack. There should be one instance of such dashboard for each organization so that they can adjust what and how is presented
+* metrics service provides also an API for querying the data
+
+Possible advantages:
+
+* lower coupling
+
+  - metrics system is not tightened to concrete services
+  - neither their API
+  - and its API evolution
+
+* more generic
+
+  - could work for internal components and for user ones
+
+* owner of service owns his/hers metrics
+
