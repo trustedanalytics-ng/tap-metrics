@@ -11,7 +11,6 @@ import (
 	"github.com/gocraft/web"
 	"gopkg.in/square/go-jose.v1/json"
 	"fmt"
-	"math/rand"
 )
 
 type serviceContext struct {
@@ -151,13 +150,11 @@ func setupRouter(mp MetricsProvider) *web.Router {
 }
 
 func setupMetricsProvider() MetricsProvider {
-	rand.Seed(1234)
-	return &MockMetricsProvider{}
-	//mp, err := NewInfluxDBMetricsProvider()
-	//if err != nil {
-	//	log.Fatal("Error while setuping MetricsProvider", err)
-	//}
-	//return mp
+	mp, err := NewInfluxDBMetricsProvider()
+	if err != nil {
+		log.Fatal("Error while setuping MetricsProvider", err)
+	}
+	return mp
 }
 
 func main() {
