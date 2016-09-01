@@ -11,6 +11,7 @@ import (
 	"log"
 	"math/rand"
 	"strings"
+	"time"
 )
 
 type MetricsProvider interface {
@@ -18,6 +19,7 @@ type MetricsProvider interface {
 	OrganizationMetrics(organization string) (*model.OrganizationMetrics, error)
 	SingleMetric(measurement string, fields []string, from, to string) (*model.RawMetrics, error)
 	RawQuery(query string) (*model.RawMetrics, error)
+	Health() (string, error)
 }
 
 type InfluxMetricsProvider struct {
@@ -125,6 +127,11 @@ func (imp *InfluxMetricsProvider) SingleMetric(measurement string, fields []stri
 	return &model.RawMetrics{
 		Metrics: metrics,
 	}, nil
+}
+func (imp *InfluxMetricsProvider) Health() (string, error) {
+	duration, msg, err := imp.client.Ping(time.Second)
+	retMsg := fmt.Sprintf("Ping: %v\nMessage: %s\nError: %v\n", duration, msg, err)
+	return retMsg, err
 }
 
 func influxClientConfig() *influx.HTTPConfig {

@@ -42,8 +42,12 @@ func jsonResponse(rw web.ResponseWriter, response interface{}) {
 }
 
 func (sc *serviceContext) Health(c *requestContext, rw web.ResponseWriter, req *web.Request) {
-	// TODO
-	rw.Write([]byte("OK"))
+	msg, err := sc.mp.Health()
+	if err != nil {
+		handleError("Healtcheck: " + msg, err, rw, http.StatusInternalServerError)
+		return
+	}
+	rw.Write([]byte(msg))
 }
 
 func extractTime(req *web.Request, key string) (*time.Time, error) {
