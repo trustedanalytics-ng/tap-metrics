@@ -7,7 +7,7 @@ import (
 	"net/http"
 
 	"github.com/streadway/amqp"
-	"github.com/trustedanalytics/tapng-go-common/util"
+	"github.com/trustedanalytics/tap-go-common/util"
 )
 
 func failReceiverOnError(err error, msg string) {

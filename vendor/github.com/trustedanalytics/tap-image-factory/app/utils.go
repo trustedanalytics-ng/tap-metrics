@@ -20,7 +20,7 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"github.com/trustedanalytics/tapng-catalog/models"
+	"github.com/trustedanalytics/tap-catalog/models"
 	"io"
 	"os"
 	"strings"

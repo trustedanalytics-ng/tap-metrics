@@ -19,8 +19,8 @@ package app
 import (
 	"os"
 
-	blobStoreApi "github.com/trustedanalytics/tapng-blob-store/client"
-	catalogApi "github.com/trustedanalytics/tapng-catalog/client"
+	blobStoreApi "github.com/trustedanalytics/tap-blob-store/client"
+	catalogApi "github.com/trustedanalytics/tap-catalog/client"
 )
 
 type BlobStoreApi interface {

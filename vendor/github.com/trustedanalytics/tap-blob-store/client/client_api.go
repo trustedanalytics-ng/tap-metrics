@@ -7,8 +7,8 @@ import (
 	"mime/multipart"
 	"net/http"
 
-	brokerHttp "github.com/trustedanalytics/tapng-go-common/http"
-	"github.com/trustedanalytics/tapng-go-common/logger"
+	brokerHttp "github.com/trustedanalytics/tap-go-common/http"
+	"github.com/trustedanalytics/tap-go-common/logger"
 )
 
 var (

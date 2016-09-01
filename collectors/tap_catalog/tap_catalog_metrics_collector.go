@@ -3,9 +3,9 @@ package main
 import (
 	utils "github.com/trustedanalytics/metrics/collectors"
 	catalogMetrics "github.com/trustedanalytics/metrics/collectors/tap_catalog/metrics"
-	tapCatalogClient "github.com/trustedanalytics/tapng-catalog/client"
+	tapCatalogClient "github.com/trustedanalytics/tap-catalog/client"
 
-	tapImageFactory "github.com/trustedanalytics/tapng-image-factory/app"
+	tapImageFactory "github.com/trustedanalytics/tap-image-factory/app"
 	// Owner of Catalog could provide proper method for initialization
 	// that is located there
 

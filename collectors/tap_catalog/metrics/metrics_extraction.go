@@ -2,10 +2,10 @@ package metrics
 
 import (
 	utils "github.com/trustedanalytics/metrics/collectors"
-	//tapCatalogModels "github.com/trustedanalytics/tapng-catalog/models"
+	//tapCatalogModels "github.com/trustedanalytics/tap-catalog/models"
 	"log"
 
-	tapCatalogClient "github.com/trustedanalytics/tapng-catalog/client"
+	tapCatalogClient "github.com/trustedanalytics/tap-catalog/client"
 )
 
 const (

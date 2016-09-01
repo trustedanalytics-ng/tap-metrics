@@ -154,7 +154,7 @@
 		},
 		{
 			"checksumSHA1": "BoXdUBWB8UnSlFlbnuTQaPqfCGk=",
-			"origin": "github.com/trustedanalytics/tapng-image-factory/vendor/github.com/op/go-logging",
+			"origin": "github.com/trustedanalytics/tap-image-factory/vendor/github.com/op/go-logging",
 			"path": "github.com/op/go-logging",
 			"revision": "c13c4751e10dcf592d2bcc6c8615a51e5ba5df3d",
 			"revisionTime": "2016-08-19T14:53:29Z"
@@ -179,49 +179,49 @@
 		},
 		{
 			"checksumSHA1": "X/vMXvMLEwkB/RptSd4TnvfSohs=",
-			"path": "github.com/trustedanalytics/tapng-blob-store/client",
+			"path": "github.com/trustedanalytics/tap-blob-store/client",
 			"revision": "72f22292d99ce1fa4e56e8263f24f28e94887c10",
 			"revisionTime": "2016-08-23T13:08:35Z"
 		},
 		{
 			"checksumSHA1": "RGWQZW1Et9qww2YmL608obhsMRE=",
-			"path": "github.com/trustedanalytics/tapng-catalog/client",
+			"path": "github.com/trustedanalytics/tap-catalog/client",
 			"revision": "582defe950d2b2621d95c263d8be4c06cc33e9df",
 			"revisionTime": "2016-08-24T07:39:22Z"
 		},
 		{
 			"checksumSHA1": "05UT2j6zwYv1aNbMQ0yunk58+QA=",
-			"path": "github.com/trustedanalytics/tapng-catalog/models",
+			"path": "github.com/trustedanalytics/tap-catalog/models",
 			"revision": "582defe950d2b2621d95c263d8be4c06cc33e9df",
 			"revisionTime": "2016-08-24T07:39:22Z"
 		},
 		{
 			"checksumSHA1": "FHH5vvuyglwKP3h05rYJdf29KQg=",
-			"path": "github.com/trustedanalytics/tapng-go-common/http",
+			"path": "github.com/trustedanalytics/tap-go-common/http",
 			"revision": "46eec003e59e0963a0feb2df001ca2271dacad99",
 			"revisionTime": "2016-08-19T14:17:01Z"
 		},
 		{
 			"checksumSHA1": "RVbaAnp5aHoeOAwEiyyd7EHax+w=",
-			"path": "github.com/trustedanalytics/tapng-go-common/logger",
+			"path": "github.com/trustedanalytics/tap-go-common/logger",
 			"revision": "46eec003e59e0963a0feb2df001ca2271dacad99",
 			"revisionTime": "2016-08-19T14:17:01Z"
 		},
 		{
 			"checksumSHA1": "uy1dWe+cZBlJvG9+8+8eCteT/IA=",
-			"path": "github.com/trustedanalytics/tapng-go-common/util",
+			"path": "github.com/trustedanalytics/tap-go-common/util",
 			"revision": "46eec003e59e0963a0feb2df001ca2271dacad99",
 			"revisionTime": "2016-08-19T14:17:01Z"
 		},
 		{
 			"checksumSHA1": "9LO7PnDnzItB90IExhJgHDs331w=",
-			"path": "github.com/trustedanalytics/tapng-image-factory/app",
+			"path": "github.com/trustedanalytics/tap-image-factory/app",
 			"revision": "c13c4751e10dcf592d2bcc6c8615a51e5ba5df3d",
 			"revisionTime": "2016-08-19T14:53:29Z"
 		},
 		{
 			"checksumSHA1": "U8/9eBKkILjtMc9rJb2A3kIrEY4=",
-			"path": "github.com/trustedanalytics/tapng-image-factory/logger",
+			"path": "github.com/trustedanalytics/tap-image-factory/logger",
 			"revision": "c13c4751e10dcf592d2bcc6c8615a51e5ba5df3d",
 			"revisionTime": "2016-08-19T14:53:29Z"
 		},

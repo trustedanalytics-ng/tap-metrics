@@ -22,11 +22,11 @@ import (
 	"github.com/gocraft/web"
 	"net/http"
 
-	blobStoreApi "github.com/trustedanalytics/tapng-blob-store/client"
-	catalogApi "github.com/trustedanalytics/tapng-catalog/client"
-	"github.com/trustedanalytics/tapng-catalog/models"
-	"github.com/trustedanalytics/tapng-go-common/util"
-	"github.com/trustedanalytics/tapng-image-factory/logger"
+	blobStoreApi "github.com/trustedanalytics/tap-blob-store/client"
+	catalogApi "github.com/trustedanalytics/tap-catalog/client"
+	"github.com/trustedanalytics/tap-catalog/models"
+	"github.com/trustedanalytics/tap-go-common/util"
+	"github.com/trustedanalytics/tap-image-factory/logger"
 )
 
 var (
