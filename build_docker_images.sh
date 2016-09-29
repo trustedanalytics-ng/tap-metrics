@@ -20,6 +20,7 @@ echo -e "\n\n ****** Building Docker images ******\n"
 build "metrics collector ambassador" collector-ambassador/ metrics-collector-ambassador:$TAG
 build "presenter" presenter metrics-presenter:$TAG
 build "TAP Catalog metrics Collector" collectors/tap_catalog metrics-tap-catalog-collector:$TAG
+build "Grafana preconfigured" grafana metrics-grafana:$TAG
 
 echo -e "\n\n *** DONE, OK ***\n"
 
