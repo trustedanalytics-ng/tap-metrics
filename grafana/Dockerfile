@@ -4,7 +4,9 @@ RUN apt-get -y update && apt-get -y install curl
 
 ADD init-and-run.sh /
 
-VOLUME ["/grafana_init_config"]
+ADD init_content /grafana_init_static_content
+
+VOLUME ["/grafana_init_dynamic_content"]
 
 ENTRYPOINT ["/init-and-run.sh"]
 
