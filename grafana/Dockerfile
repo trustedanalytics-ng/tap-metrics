@@ -8,5 +8,7 @@ ADD init_content /grafana_init_static_content
 
 VOLUME ["/grafana_init_dynamic_content"]
 
+ENV GF_ANALYTICS_REPORTING_ENABLED false
+
 ENTRYPOINT ["/init-and-run.sh"]
 
