@@ -4,14 +4,12 @@ import (
 	"fmt"
 	"os"
 
-	"encoding/json"
-	influx "github.com/influxdata/influxdb/client/v2"
-	tap_catalog "github.com/trustedanalytics/metrics/collectors/tap_catalog/metrics"
+	//"github.com/prometheus/client_golang/api/prometheus"
+	pmodel "github.com/prometheus/common/model"
 	"github.com/trustedanalytics/metrics/presenter/model"
 	"log"
 	"math/rand"
-	"strings"
-	"time"
+	"net/http"
 )
 
 type MetricsProvider interface {
@@ -22,63 +20,79 @@ type MetricsProvider interface {
 	Health() (string, error)
 }
 
-type InfluxMetricsProvider struct {
-	client influx.Client
-	dbName string
+type PrometheusMetricsProvider struct {
+	//queryAPI prometheus.QueryAPI
+	client *http.Client
+	url string
 }
 
-func (imp *InfluxMetricsProvider) execQuery(query string) (*influx.Response, error) {
-	q := influx.Query{
-		Command:  query,
-		Database: imp.dbName,
-	}
-	return imp.client.Query(q)
-}
-
-func (imp *InfluxMetricsProvider) RawQuery(query string) (*model.RawMetrics, error) {
-	// TODO
-	results, err := imp.execQuery(query)
-	fmt.Println(results, err)
+func (pmp *PrometheusMetricsProvider) execQuery(query string) (pmodel.Value, error) {
+	req, err := http.NewRequest("GET", pmp.url + "/api/v1/query", nil)
 	if err != nil {
+		log.Panic("Error creating request to Prometheus:", err)
 		return nil, err
+	}
+	q := req.URL.Query()
+	q.Add("query", query)
+	req.URL.RawQuery = q.Encode()
+	resp, err := pmp.client.Do(req)
+	if err != nil {
+		log.Println("Error while making request to Prometheus:", err)
+		return nil, err
+	}
+	defer resp.Body.Close()
+	log.Println(resp.Body)
+	return nil, nil
+}
+
+func prometheusValueToRawMetrics(value pmodel.Value) (*model.RawMetrics, error) {
+	switch value.Type() {
+	case pmodel.ValScalar:
+		return nil, nil
+	case pmodel.ValVector:
+		return nil, nil
+	case pmodel.ValMatrix:
+		return nil, nil
+	case pmodel.ValString:
+		return nil, nil
 	}
 	return nil, nil
 }
 
-func (imp *InfluxMetricsProvider) PlatformMetrics() (*model.PlatformMetrics, error) {
-	selects := strings.Join([]string{
-		tap_catalog.OrganizationsCount,
-		tap_catalog.UsersCount,
-		tap_catalog.ApplicationsCount,
-		tap_catalog.ServicesInstancesCount,
-	}, ", ")
-	platformMetricsQuery := fmt.Sprintf("SELECT %s FROM %s LIMIT 1", selects, tap_catalog.PlatformMeasurement)
-	resp, err := imp.execQuery(platformMetricsQuery) // TODO query object could be reused
+func (pmp *PrometheusMetricsProvider) RawQuery(query string) (*model.RawMetrics, error) {
+	results, err := pmp.execQuery(query)
 	if err != nil {
-		log.Println("Error retrieving platform metrics: ", resp.Err)
 		return nil, err
 	}
-	return resultsToPlatformMetrics(resp.Results)
+	return prometheusValueToRawMetrics(results)
 }
 
-func toInt(number interface{}) int {
-	n, err := number.(json.Number).Int64()
-	if err != nil {
-		log.Panic("Unable to cast to int value: ", number)
-	}
-	return int(n)
+func (pmp *PrometheusMetricsProvider) PlatformMetrics() (*model.PlatformMetrics, error) {
+	//selects := strings.Join([]string{
+	//	tap_catalog.OrganizationsCount,
+	//	tap_catalog.UsersCount,
+	//	tap_catalog.ApplicationsCount,
+	//	tap_catalog.ServicesInstancesCount,
+	//}, ", ")
+	//platformMetricsQuery := fmt.Sprintf("SELECT %s FROM %s LIMIT 1", selects, tap_catalog.PlatformMeasurement)
+	//resp, err := imp.execQuery(platformMetricsQuery) // TODO query object could be reused
+	//if err != nil {
+	//	log.Println("Error retrieving platform metrics: ", resp.Err)
+	//	return nil, err
+	//}
+	return resultsToPlatformMetrics(nil)
 }
 
-func resultsToPlatformMetrics(results []influx.Result) (*model.PlatformMetrics, error) {
-	row := results[0].Series[0].Values[0]
+func resultsToPlatformMetrics(results map[string]interface{}) (*model.PlatformMetrics, error) {
+	// TODO
 	return &model.PlatformMetrics{
-		OrganizationsCount: toInt(row[1]),
-		// TODO I think it is missing users
-		ApplicationsCount:     toInt(row[3]),
-		ServiceInstancesCount: toInt(row[4]),
 		// mocks
-		MemoryUsage:  4 * 1024 * 1024,
-		LatestEvents: 5,
+		OrganizationsCount: 1,
+		// TODO I think it is missing users
+		ApplicationsCount:     2,
+		ServiceInstancesCount: 3,
+		MemoryUsage:           4 * 1024 * 1024,
+		LatestEvents:          5,
 		Nodes: []model.NodeMetrics{
 			model.NodeMetrics{},
 		},
@@ -88,7 +102,7 @@ func resultsToPlatformMetrics(results []influx.Result) (*model.PlatformMetrics, 
 	}, nil
 }
 
-func (imp *InfluxMetricsProvider) OrganizationMetrics(organization string) (*model.OrganizationMetrics, error) {
+func (pmp *PrometheusMetricsProvider) OrganizationMetrics(organization string) (*model.OrganizationMetrics, error) {
 	// TODO this is mock
 	return &model.OrganizationMetrics{
 		OrganizationID: "defaultID",
@@ -108,7 +122,7 @@ func (imp *InfluxMetricsProvider) OrganizationMetrics(organization string) (*mod
 	}, nil
 }
 
-func (imp *InfluxMetricsProvider) SingleMetric(measurement string, fields []string, from, to string) (*model.RawMetrics, error) {
+func (pmp *PrometheusMetricsProvider) SingleMetric(measurement string, fields []string, from, to string) (*model.RawMetrics, error) {
 	// TODO this is mock
 	metrics := []model.RawMetric{}
 	for _, field := range fields {
@@ -128,30 +142,29 @@ func (imp *InfluxMetricsProvider) SingleMetric(measurement string, fields []stri
 		Metrics: metrics,
 	}, nil
 }
-func (imp *InfluxMetricsProvider) Health() (string, error) {
-	duration, msg, err := imp.client.Ping(time.Second)
-	retMsg := fmt.Sprintf("Ping: %v\nMessage: %s\nError: %v\n", duration, msg, err)
-	return retMsg, err
-}
-
-func influxClientConfig() *influx.HTTPConfig {
-	addr := fmt.Sprintf("http://%s:%s",
-		os.Getenv("METRICS_INFLUXDB_SERVICE_HOST"),
-		os.Getenv("METRICS_INFLUXDB_SERVICE_PORT_API"),
-	)
-	return &influx.HTTPConfig{
-		Addr: addr,
-	}
-}
-
-func NewInfluxDBMetricsProvider() (*InfluxMetricsProvider, error) {
-	client, err := influx.NewHTTPClient(*influxClientConfig())
+func (pmp *PrometheusMetricsProvider) Health() (string, error) {
+	resp, err := pmp.execQuery("up{kubernetes_name=\"metrics-prometheus\"}")
 	if err != nil {
-		return nil, err
+		return "Error running simple query to Prometheus", err
 	}
-	dbName := os.Getenv("METRICS_INFLUXDB_DB_NAME")
-	if dbName == "" {
-		dbName = "TAPMetrics"
-	}
-	return &InfluxMetricsProvider{client, dbName}, nil
+	return resp.String(), nil
+}
+
+func getPrometheusMetricsProvider() (*PrometheusMetricsProvider, error) {
+	addr := fmt.Sprintf("http://%s:%s",
+		os.Getenv("METRICS_PROMETHEUS_SERVICE_HOST"),
+		os.Getenv("METRICS_PROMETHEUS_SERVICE_PORT"),
+	)
+	//config := prometheus.Config{Address: addr}
+	//client, err := prometheus.New(config)
+	//if err != nil {
+	//	return nil, err
+	//}
+	//queryApi := prometheus.NewQueryAPI(client)
+	//return &PrometheusMetricsProvider{queryApi}, nil
+	return &PrometheusMetricsProvider{http.DefaultClient, addr}, nil
+}
+
+func GetMetricsProvider() (MetricsProvider, error) {
+	return getPrometheusMetricsProvider()
 }

@@ -154,7 +154,7 @@ func setupRouter(mp MetricsProvider) *web.Router {
 }
 
 func setupMetricsProvider() MetricsProvider {
-	mp, err := NewInfluxDBMetricsProvider()
+	mp, err := GetMetricsProvider()
 	if err != nil {
 		log.Fatal("Error while setuping MetricsProvider", err)
 	}

@@ -135,24 +135,6 @@
 			"revisionTime": "2016-07-11T12:45:36Z"
 		},
 		{
-			"checksumSHA1": "z/2xsrJamaC3QABBwWSJZWmK2TE=",
-			"path": "github.com/influxdata/influxdb/client/v2",
-			"revision": "a0004b68577cdbfc921463404eab839c50f14a0c",
-			"revisionTime": "2016-08-15T19:21:35Z"
-		},
-		{
-			"checksumSHA1": "kETh9GxyD58CZg8S4ZNfVCJNyx0=",
-			"path": "github.com/influxdata/influxdb/models",
-			"revision": "a0004b68577cdbfc921463404eab839c50f14a0c",
-			"revisionTime": "2016-08-15T19:21:35Z"
-		},
-		{
-			"checksumSHA1": "3whhUQgHbzSoO16vbx/XMCkg6Bs=",
-			"path": "github.com/influxdata/influxdb/pkg/escape",
-			"revision": "a0004b68577cdbfc921463404eab839c50f14a0c",
-			"revisionTime": "2016-08-15T19:21:35Z"
-		},
-		{
 			"checksumSHA1": "BoXdUBWB8UnSlFlbnuTQaPqfCGk=",
 			"origin": "github.com/trustedanalytics/tap-image-factory/vendor/github.com/op/go-logging",
 			"path": "github.com/op/go-logging",
@@ -164,6 +146,18 @@
 			"path": "github.com/opencontainers/runc/libcontainer/user",
 			"revision": "42dfd606437b538ffde4f0640d433916bee928e3",
 			"revisionTime": "2016-06-14T06:19:20Z"
+		},
+		{
+			"checksumSHA1": "vzeidZ3FlpAOQOzUAinE8zzxVRk=",
+			"path": "github.com/prometheus/client_golang/api/prometheus",
+			"revision": "8aae34f3ffc9a93c75efeaad87bb192aa7750900",
+			"revisionTime": "2016-09-12T10:34:28Z"
+		},
+		{
+			"checksumSHA1": "Jx0GXl5hGnO25s3ryyvtdWHdCpw=",
+			"path": "github.com/prometheus/common/model",
+			"revision": "76316eadbb7895a0310c6098559b975216dc33bf",
+			"revisionTime": "2016-09-10T11:41:46Z"
 		},
 		{
 			"checksumSHA1": "/F9F5OrsdGnwxZEN/TDdyvpE/FU=",
@@ -230,6 +224,12 @@
 			"path": "golang.org/x/net/context",
 			"revision": "3f122ce3dbbe488b7e6a8bdb26f41edec852a40b",
 			"revisionTime": "2016-06-09T04:57:12Z"
+		},
+		{
+			"checksumSHA1": "WHc3uByvGaMcnSoI21fhzYgbOgg=",
+			"path": "golang.org/x/net/context/ctxhttp",
+			"revision": "de35ec43e7a9aabd6a9c54d2898220ea7e44de7d",
+			"revisionTime": "2016-09-12T21:03:54Z"
 		},
 		{
 			"checksumSHA1": "LvdVRE0FqdR68SvVpRkHs1rxhcA=",
