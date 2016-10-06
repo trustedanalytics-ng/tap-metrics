@@ -5,53 +5,67 @@ title Metrics system in TAP
 actor User as user
 actor Operator as operator
 
+
 package TAP {
 
-    frame "Console" as console {
-
+    Node CDH {
     }
 
-    frame "Metrics system" {
-
-        [API] as api
-        [Collector] as collector
-        database InfluxDB as db
-        [Direct view\nTBD exising solution] as dview
+    Node CEPH {
     }
 
-    folder "Metrics providres" {
+    Node K8S {
 
-        [From K8S API] as k8s
-        [From Catalog] as catalog
-        [From Data Catalog] as dcatalog
-        [From ? TAP Components status endpoints] as tcomponents
+        frame "K8S API server" as k8sapi {
+        }
+
+        frame "Console" as console {
+        }
+
+        frame UAA {
+        }
+
+        [Grafana] as grafana
+        [Prometheus] as prometheus
+
+
+        cloud "\nK8S Nodes\n" as knodes{
+            skinparam cloudBackgroundColor white
+        }
+
+        cloud "\nK8S services/pods\n" as kservices {
+            folder "Metrics exporters" as ME {
+
+                [Ceph exporter] as CephE
+                [CDH exporter] as CDHE
+            }
+
+            folder "TAP apps" {
+                [Catalog] as tapcatalog
+                [Data Catalog] as tapdcatalog
+                [others]
+            }
+        }
     }
 
-    [K8S API] as tapk8s
-    [Catalog] as tapcatalog
-    [Data Catalog] as tapdcatalog
-    [TAP Components status endpoints] as taptcomponents
+    CDH     <-u-     CDHE
+    CEPH    <-u-     CephE
+
 }
 
-user        -r->     console
-operator    -r->     dview
+console     ==>     grafana     :   as iFrame
 
-console     -->     api         :   REST
-dview       -->     db          :   native
+UAA         <--     grafana     :   REST
+grafana     -->     prometheus  :   REST
 
-db          <-->    api         :   native
-collector   -->     db          :   native
+prometheus  -->     k8sapi
+prometheus  -->     knodes
+prometheus  -->     kservices
 
-
-k8s         -l->     collector       :   GRPC
-catalog     -l->     collector       :   GRPC
-dcatalog    -l->     collector       :   GRPC
-tcomponents -l->     collector       :   GRPC
-
-k8s         -r->     tapk8s
-catalog     -r->     tapcatalog
-dcatalog    -r->     tapdcatalog
-tcomponents -r->     taptcomponents
+user        -->     console     :   Web
+user        -->     grafana     :   Web
+operator    -->     console     :   Web
+operator    -->     grafana     :   Web with extended privileges
 
 
 @enduml

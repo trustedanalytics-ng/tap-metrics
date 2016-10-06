@@ -4,67 +4,46 @@ System for handling metrics in TAP
 
 ## Architecture
 
+Yellow components are the ones strictly for metrics sub-system
+
 ![](docs/arch.png)
 
-* Each specyfic collector runs as separate pod to reduce friction between different kinds of services and reduce impact of any failure
-  * Task of adding new collector was simplified due to provided library
-* Using Telegraf on each specyfic collector to ensure (in future) secured connection with InfluxDB
+### Core components
+
+[Prometheus](http://prometheus.io/)
+
+[Grafana](http://grafana.org/)
+
+
+## Dashboards
+
+WIP: now only definitions
+
+### TAP dashboard (aka Platform Dashboard)
+
+### Organization dashboard
+
+### User applications dashboard
+
+TODO - we need a way to easily identify users apps
+
+
+
+## You want your app to have metrics collected?
+
+In order to make your metrics available in Grafana you need to:
+
+* collect them into Prometheus. You can:
+    * instrument your code end expose collected data through endpoint. [Here you can related libraries](https://prometheus.io/docs/instrumenting/clientlibs/)
+    * create exposer service that can collect metrics from services which code we can't instrument. [More info here](https://prometheus.io/docs/instrumenting/exporters/)
+    * (not recommended in most cases) push your metrics to Prometheus directly. [See here for more info](https://prometheus.io/docs/instrumenting/pushing/)
+* inform Prometheus that your service can be scrapped. [See here](https://github.com/prometheus/prometheus/blob/50e044bb006f74b14cc44fc65a1f3bdad0ed5676/documentation/examples/prometheus-kubernetes.yml#L73)
 
 ## TODOs
 
-NEEDS HEAPSTER TO COLLECT DATA RELATED TO CLUSTER PERFORMANCE AND STATE
-
-### Metrics DB
-
-* InfluxDB with direct access - simpler that way
-
-### Metrics read/query API
-
-* should it be direct access to InfluxDB queries? (with auth checks on org/platform) or be simplictly wrapped?
-
-### Collectors (Metrics pushers)
-
-* k8s API
-* Catalog
-* Data Catalog
-* TAP Components status endpoint
+* secure connection between Grafana and Prometheus
+* OAuth in Grafana (in 4.x.x - currently in beta). We need to integrate UAA
+* HA deployment for Prometheus (2x instances, petsets + PV) and Grafana (2x instances) -- in deployment related repo.
 
 
-## Some further TODOs
-
-* enable auth in InfluxDB https://docs.influxdata.com/influxdb/v0.13/administration/authentication_and_authorization/
-* InfluxDB deployment in a HA mode
-* Retention Policy in Influx to store data newer than X (3 days?)
-
-
-
-## Note
-
-It could be designed in different way (analogous to /healthz):
-
-* metrics are provided by apps
-
-  * app that wants to expose metrics adds annotation to it's service
-  * annotation value specifies which port and RESTpath to query (preferably /metricsz). It also can specify how often query should happen
-  * app serves metrics in one of formats accepted by InfluxDB
-  * format is recoginzed based on HTTP header with fall back to default one
-
-* metrics service is regularly querying K8S api to discover such services
-* metrics service queries those services on specified endpoints
-* metrics service is integrated with some dashboard technology stack. There should be one instance of such dashboard for each organization so that they can adjust what and how is presented
-* metrics service provides also an API for querying the data
-
-Possible advantages:
-
-* lower coupling
-
-  - metrics system is not tightened to concrete services
-  - neither their API
-  - and its API evolution
-
-* more generic
-
-  - could work for internal components and for user ones
-
-* owner of service owns his/hers metrics
 
