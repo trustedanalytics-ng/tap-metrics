@@ -17,7 +17,6 @@ function build() {
 echo -e "\n\n ****** Building TAP Metrics related aretfacts ******\n"
 
 build "collectors utils" collectors
-build "presenter" presenter
 
 build "TAP Catalog metrics collector" collectors/tap_catalog
 
