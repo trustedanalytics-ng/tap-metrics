@@ -1,11 +1,11 @@
 package utils
 
 import (
-	"github.com/prometheus/client_golang/prometheus"
 	"log"
 	"net/http"
-	"sync"
 	"time"
+
+	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
@@ -97,16 +97,10 @@ func collectMetrics(collectors []MetricCollector) {
 		metricsCollectingTime.Observe(float64(took))
 	}()
 
-	wg := sync.WaitGroup{}
-	wg.Add(len(collectors))
 	for c := range collectors {
-		go func() {
-			cErr := collectors[c]()
-			if cErr != nil {
-				wasError = true
-			}
-			wg.Done()
-		}()
+		cErr := collectors[c]()
+		if cErr != nil {
+			wasError = true
+		}
 	}
-	wg.Wait()
 }
