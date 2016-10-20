@@ -835,6 +835,7 @@
     "links": [],
     "gnetId": null
   },
+  "refresh": "5s",
   "overwrite": true,
   "inputs": [
     {

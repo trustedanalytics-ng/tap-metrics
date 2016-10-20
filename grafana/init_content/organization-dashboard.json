@@ -726,6 +726,7 @@
     "annotations": {
       "list": []
     },
+    "refresh": "5s",
     "schemaVersion": 12,
     "version": 1,
     "links": [],
