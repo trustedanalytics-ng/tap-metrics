@@ -1,8 +1,8 @@
 package main
 
 import (
-	utils "github.com/trustedanalytics/metrics/collectors"
-	catalogMetrics "github.com/trustedanalytics/metrics/collectors/tap_catalog/metrics"
+	utils "github.com/trustedanalytics/tap-metrics/collectors"
+	catalogMetrics "github.com/trustedanalytics/tap-metrics/collectors/tap_catalog/metrics"
 	tapCatalogClient "github.com/trustedanalytics/tap-catalog/client"
 
 	tapImageFactory "github.com/trustedanalytics/tap-image-factory/app"

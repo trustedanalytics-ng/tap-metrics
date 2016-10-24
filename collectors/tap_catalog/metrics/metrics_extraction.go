@@ -1,7 +1,7 @@
 package metrics
 
 import (
-	utils "github.com/trustedanalytics/metrics/collectors"
+	utils "github.com/trustedanalytics/tap-metrics/collectors"
 	//tapCatalogModels "github.com/trustedanalytics/tap-catalog/models"
 	"log"
 

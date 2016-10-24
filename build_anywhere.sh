@@ -2,7 +2,7 @@
 
 set -e
 
-REPO=github.com/trustedanalytics/metrics
+REPO=github.com/trustedanalytics/tap-metrics
 
 # GOPATH setting up
 mkdir -p ./temp/src/$REPO
