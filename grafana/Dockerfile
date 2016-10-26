@@ -6,7 +6,7 @@ ADD init-and-run.sh /
 
 ADD init_content /grafana_init_static_content
 
-ADD init_content/grafana.light.min.c2a2cca4.css /usr/share/grafana/public/css/grafana/grafana.light.min.c2a2cca4.css
+COPY overrides/grafana.light.min.c2a2cca4.css /usr/share/grafana/public/css/grafana.light.min.c2a2cca4.css
 
 VOLUME ["/grafana_init_dynamic_content"]
 

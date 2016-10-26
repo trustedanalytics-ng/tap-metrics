@@ -1218,7 +1218,6 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.5;
-    background-color: #fff
 }
 
 [tabindex="-1"]:focus {
