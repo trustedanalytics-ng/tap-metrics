@@ -15,5 +15,6 @@ echo -e "\n ****** Pushing Docker images ******\n\n"
 push metrics-collector-ambassador:$TAG
 push metrics-tap-catalog-collector:$TAG
 push metrics-grafana:$TAG
+push metrics-ceph-exporter:$TAG
 
 echo -e "\n\n ****** DONE: Pushing Docker images ******\n"

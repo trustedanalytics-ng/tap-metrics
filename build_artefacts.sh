@@ -20,5 +20,9 @@ build "collectors utils" collectors
 
 build "TAP Catalog metrics collector" collectors/tap_catalog
 
+cd ./ceph_exporter/
+./build_ceph_exporter.sh
+cd -
+
 echo -e "\n\n *** DONE, OK ***\n"
 
