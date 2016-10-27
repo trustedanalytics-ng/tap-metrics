@@ -11420,7 +11420,8 @@ div.flot-text {
     z-index: 500;
     position: absolute;
     background: #ECECEC;
-    border: 1px solid #000
+    border: 1px solid #000;
+    display: none
 }
 
 .panel-menu .panel-menu-row {
