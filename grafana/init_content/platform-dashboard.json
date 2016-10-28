@@ -429,7 +429,7 @@
             },
             "targets": [
               {
-                "expr": "42",
+                "expr": "tap_usermanagement_counts{component='users'}",
                 "intervalFactor": 2,
                 "refId": "A",
                 "step": 600
