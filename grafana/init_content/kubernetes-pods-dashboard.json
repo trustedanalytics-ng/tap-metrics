@@ -142,7 +142,7 @@
             "error": false,
             "format": "percentunit",
             "gauge": {
-              "maxValue": 100,
+              "maxValue": 1,
               "minValue": 0,
               "show": true,
               "thresholdLabels": false,
@@ -192,7 +192,7 @@
                 "step": 60
               }
             ],
-            "thresholds": "70,90",
+            "thresholds": "0.70,0.90",
             "title": "CPU usage",
             "transparent": true,
             "type": "singlestat",
@@ -282,7 +282,8 @@
                 "value": "null"
               }
             ],
-            "valueName": "avg"
+            "valueName": "avg",
+            "decimals": 2
           }
         ],
         "title": "Row"
