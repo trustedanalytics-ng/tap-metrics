@@ -43,7 +43,7 @@
     "style": "dark",
     "timezone": "browser",
     "editable": false,
-    "hideControls": false,
+    "hideControls": true,
     "sharedCrosshair": false,
     "rows": [
       {
@@ -116,7 +116,7 @@
               }
             ],
             "thresholds": "",
-            "title": "Applications",
+            "title": "User Applications",
             "transparent": true,
             "type": "singlestat",
             "valueFontSize": "80%",
@@ -436,7 +436,7 @@
               }
             ],
             "thresholds": "",
-            "title": "Users",
+            "title": "User Accounts",
             "transparent": true,
             "type": "singlestat",
             "valueFontSize": "80%",
@@ -477,7 +477,7 @@
               "thresholdLabels": false,
               "thresholdMarkers": true
             },
-            "id": 7,
+            "id": 6,
             "interval": null,
             "isNew": true,
             "links": [],
@@ -522,7 +522,7 @@
               }
             ],
             "thresholds": "",
-            "title": "Memory used",
+            "title": "Memory Used",
             "transparent": true,
             "type": "singlestat",
             "valueFontSize": "80%",
@@ -555,7 +555,7 @@
               "thresholdLabels": false,
               "thresholdMarkers": true
             },
-            "id": 8,
+            "id": 7,
             "interval": null,
             "isNew": true,
             "links": [],
@@ -691,105 +691,6 @@
               }
             ],
             "valueName": "avg"
-          }
-        ],
-        "title": "New row"
-      },
-      {
-        "collapse": false,
-        "editable": true,
-        "height": "100px",
-        "panels": [
-          {
-            "cacheTimeout": null,
-            "colorBackground": false,
-            "colorValue": false,
-            "colors": [
-              "rgba(245, 54, 54, 0.9)",
-              "rgba(237, 129, 40, 0.89)",
-              "rgba(50, 172, 45, 0.97)"
-            ],
-            "datasource": "${DS_TAP_PROMETHEUS}",
-            "editable": true,
-            "error": false,
-            "format": "none",
-            "gauge": {
-              "maxValue": 100,
-              "minValue": 0,
-              "show": false,
-              "thresholdLabels": false,
-              "thresholdMarkers": true
-            },
-            "id": 6,
-            "interval": null,
-            "isNew": true,
-            "links": [],
-            "mappingType": 1,
-            "mappingTypes": [
-              {
-                "name": "value to text",
-                "value": 1
-              },
-              {
-                "name": "range to text",
-                "value": 2
-              }
-            ],
-            "maxDataPoints": 100,
-            "nullPointMode": "connected",
-            "nullText": null,
-            "postfix": "",
-            "postfixFontSize": "50%",
-            "prefix": "",
-            "prefixFontSize": "50%",
-            "rangeMaps": [
-              {
-                "from": "null",
-                "text": "N/A",
-                "to": "null"
-              }
-            ],
-            "span": 6,
-            "sparkline": {
-              "fillColor": "rgba(31, 118, 189, 0.18)",
-              "full": false,
-              "lineColor": "rgb(31, 120, 193)",
-              "show": false
-            },
-            "targets": [
-              {
-                "expr": "42",
-                "intervalFactor": 2,
-                "refId": "A",
-                "step": 600
-              }
-            ],
-            "thresholds": "",
-            "title": "Buildpacks",
-            "transparent": true,
-            "type": "singlestat",
-            "valueFontSize": "80%",
-            "valueMaps": [
-              {
-                "op": "=",
-                "text": "N/A",
-                "value": "null"
-              }
-            ],
-            "valueName": "avg"
-          },
-          {
-            "content": "<h1 style=\"text-align: center;\">0.0.42</h1>",
-            "editable": true,
-            "error": false,
-            "id": 10,
-            "isNew": true,
-            "links": [],
-            "mode": "html",
-            "span": 6,
-            "title": "Panel Title",
-            "transparent": true,
-            "type": "text"
           }
         ],
         "title": "New row"
