@@ -272,7 +272,7 @@
               }
             ],
             "thresholds": "",
-            "title": "Service Instances",
+            "title": "Service Instances Running",
             "transparent": true,
             "type": "singlestat",
             "valueFontSize": "80%",
@@ -600,7 +600,7 @@
               }
             ],
             "thresholds": "70, 90",
-            "title": "CPU usage",
+            "title": "CPU Usage",
             "transparent": true,
             "type": "singlestat",
             "valueFontSize": "80%",

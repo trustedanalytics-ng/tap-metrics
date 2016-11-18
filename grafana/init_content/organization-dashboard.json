@@ -78,7 +78,7 @@
                 "maxDataPoints": 100,
                 "nullPointMode": "connected",
                 "nullText": null,
-                "postfix": "  Applications running",
+                "postfix": "  User Applications Running",
                 "postfixFontSize": "50%",
                 "prefix": "",
                 "prefixFontSize": "50%",
@@ -92,7 +92,7 @@
                     "fillColor": "rgba(31, 118, 189, 0.18)",
                     "full": false,
                     "lineColor": "rgb(31, 120, 193)",
-                    "show": true
+                    "show": false
                 },
                 "targets": [{
                     "expr": "42",
@@ -147,7 +147,7 @@
                 "maxDataPoints": 100,
                 "nullPointMode": "connected",
                 "nullText": null,
-                "postfix": "  Applications Down",
+                "postfix": "  User Applications Stopped",
                 "postfixFontSize": "50%",
                 "prefix": "",
                 "prefixFontSize": "50%",
@@ -161,7 +161,7 @@
                     "fillColor": "rgba(31, 118, 189, 0.18)",
                     "full": false,
                     "lineColor": "rgb(31, 120, 193)",
-                    "show": true
+                    "show": false
                 },
                 "targets": [{
                     "expr": "42",
@@ -216,7 +216,7 @@
                 "maxDataPoints": 100,
                 "nullPointMode": "connected",
                 "nullText": null,
-                "postfix": "  Users Count",
+                "postfix": "  Users Accounts",
                 "postfixFontSize": "50%",
                 "prefix": "",
                 "prefixFontSize": "50%",
@@ -292,7 +292,7 @@
                 "maxDataPoints": 100,
                 "nullPointMode": "connected",
                 "nullText": null,
-                "postfix": "  Service Usage",
+                "postfix": "  Service Instances Running",
                 "postfixFontSize": "50%",
                 "prefix": "",
                 "prefixFontSize": "50%",
