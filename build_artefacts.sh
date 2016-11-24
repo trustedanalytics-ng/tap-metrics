@@ -32,10 +32,6 @@ function build() {
 
 echo -e "\n\n ****** Building TAP Metrics related aretfacts ******\n"
 
-build "collectors utils" collectors
-
-build "TAP Catalog metrics collector" collectors/tap_catalog
-
 cd ./ceph_exporter/
 ./build_ceph_exporter.sh
 cd -
