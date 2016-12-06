@@ -17,6 +17,7 @@
 
 
 GRAFANA_URL=localhost:3000
+INIT_FLAT_FILE=/grafana-data/.initialized
 
 function addFromFolder {
 
@@ -62,13 +63,18 @@ done
 
 echo "Grafana available"
 
-echo "Initializing static conent"
-addFromFolder /grafana_init_static_content
+if [ -e "$INIT_FLAT_FILE" ] ; then
+    echo "Grafana already initialized"
+else
+    echo "Initializing static conent"
+    addFromFolder /grafana_init_static_content
 
-echo "Initializing dynamic conent"
-addFromFolder /grafana_init_dynamic_content
+    echo "Initializing dynamic conent"
+    addFromFolder /grafana_init_dynamic_content
 
-echo "Initialization compleated"
+    echo "Initialization compleated"
+    touch $INIT_FLAT_FILE
+fi
 
 wait
 
