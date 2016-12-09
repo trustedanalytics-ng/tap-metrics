@@ -507,7 +507,7 @@
                 "maxDataPoints": 100,
                 "nullPointMode": "connected",
                 "nullText": null,
-                "postfix": "  Private Data Sets",
+                "postfix": "  Data Sets",
                 "postfixFontSize": "50%",
                 "prefix": "",
                 "prefixFontSize": "50%",
@@ -524,76 +524,7 @@
                     "show": false
                 },
                 "targets": [{
-                    "expr": "tap_datacatalog_counts{component='datasets', visibility='private'}",
-                    "intervalFactor": 2,
-                    "refId": "A",
-                    "step": 2
-                }],
-                "thresholds": "",
-                "title": "",
-                "transparent": true,
-                "type": "singlestat",
-                "valueFontSize": "100%",
-                "valueMaps": [{
-                    "op": "=",
-                    "text": "N/A",
-                    "value": "null"
-                }],
-                "valueName": "avg"
-            }, {
-                "cacheTimeout": null,
-                "colorBackground": false,
-                "colorValue": true,
-                "colors": [
-                    "rgb(47,114,190)",
-                    "rgb(47,114,190)",
-                    "rgb(47,114,190)"
-                ],
-                "datasource": "TAP Prometheus",
-                "editable": true,
-                "error": false,
-                "format": "none",
-                "gauge": {
-                    "maxValue": 100,
-                    "minValue": 0,
-                    "show": false,
-                    "thresholdLabels": false,
-                    "thresholdMarkers": true
-                },
-                "height": "",
-                "id": 8,
-                "interval": null,
-                "isNew": true,
-                "links": [],
-                "mappingType": 1,
-                "mappingTypes": [{
-                    "name": "value to text",
-                    "value": 1
-                }, {
-                    "name": "range to text",
-                    "value": 2
-                }],
-                "maxDataPoints": 100,
-                "nullPointMode": "connected",
-                "nullText": null,
-                "postfix": "  Public Data Sets",
-                "postfixFontSize": "50%",
-                "prefix": "",
-                "prefixFontSize": "50%",
-                "rangeMaps": [{
-                    "from": "null",
-                    "text": "N/A",
-                    "to": "null"
-                }],
-                "span": 4,
-                "sparkline": {
-                    "fillColor": "rgba(31, 118, 189, 0.18)",
-                    "full": false,
-                    "lineColor": "rgb(31, 120, 193)",
-                    "show": false
-                },
-                "targets": [{
-                    "expr": "tap_datacatalog_counts{component='datasets', visibility='public'}",
+                    "expr": "tap_datacatalog_counts{component='datasets'}",
                     "intervalFactor": 2,
                     "refId": "A",
                     "step": 2
