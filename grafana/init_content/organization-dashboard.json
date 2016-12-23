@@ -95,7 +95,7 @@
                     "show": false
                 },
                 "targets": [{
-                    "expr": "42",
+                    "expr": "tap_catalog_counts{component='applicationsRunning'}",
                     "intervalFactor": 2,
                     "refId": "A",
                     "step": 2
@@ -164,7 +164,7 @@
                     "show": false
                 },
                 "targets": [{
-                    "expr": "42",
+                    "expr": "tap_catalog_counts{component='applicationsDown'}",
                     "intervalFactor": 2,
                     "refId": "A",
                     "step": 2
@@ -309,7 +309,7 @@
                     "show": false
                 },
                 "targets": [{
-                    "expr": "42",
+                    "expr": "tap_catalog_counts{component='serviceInstancesRunning'}",
                     "intervalFactor": 2,
                     "refId": "A",
                     "step": 2

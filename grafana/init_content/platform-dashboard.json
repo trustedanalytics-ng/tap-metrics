@@ -265,7 +265,7 @@
             },
             "targets": [
               {
-                "expr": "tap_catalog_counts{component=\"serviceInstances\"}",
+                "expr": "tap_catalog_counts{component='serviceInstancesRunning'}",
                 "intervalFactor": 2,
                 "refId": "A",
                 "step": 600
