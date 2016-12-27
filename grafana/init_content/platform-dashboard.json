@@ -127,7 +127,7 @@
                 "value": "null"
               }
             ],
-            "valueName": "avg"
+            "valueName": "current"
           },
           {
             "cacheTimeout": null,
@@ -205,7 +205,7 @@
                 "value": "null"
               }
             ],
-            "valueName": "avg"
+            "valueName": "current"
           },
           {
             "cacheTimeout": null,
@@ -283,7 +283,7 @@
                 "value": "null"
               }
             ],
-            "valueName": "avg"
+            "valueName": "current"
           }
         ],
         "title": "Row"
@@ -369,7 +369,7 @@
                 "value": "null"
               }
             ],
-            "valueName": "avg"
+            "valueName": "current"
           },
           {
             "cacheTimeout": null,
@@ -447,7 +447,7 @@
                 "value": "null"
               }
             ],
-            "valueName": "avg"
+            "valueName": "current"
           }
         ],
         "title": "New row"
@@ -533,7 +533,7 @@
                 "value": "null"
               }
             ],
-            "valueName": "avg"
+            "valueName": "current"
           },
           {
             "cacheTimeout": null,
@@ -690,14 +690,14 @@
                 "value": "null"
               }
             ],
-            "valueName": "avg"
+            "valueName": "current"
           }
         ],
         "title": "New row"
       }
     ],
     "time": {
-      "from": "now-6h",
+      "from": "now",
       "to": "now"
     },
     "timepicker": {
@@ -731,12 +731,12 @@
     "annotations": {
       "list": []
     },
+    "refresh": "5s",
     "schemaVersion": 12,
     "version": 2,
     "links": [],
     "gnetId": null
   },
-  "refresh": "5s",
   "overwrite": true,
   "inputs": [
     {

@@ -110,7 +110,7 @@
                     "text": "N/A",
                     "value": "null"
                 }],
-                "valueName": "avg"
+                "valueName": "current"
             }, {
                 "cacheTimeout": null,
                 "colorBackground": false,
@@ -179,7 +179,7 @@
                     "text": "N/A",
                     "value": "null"
                 }],
-                "valueName": "avg"
+                "valueName": "current"
             }, {
                 "cacheTimeout": null,
                 "colorBackground": false,
@@ -248,7 +248,7 @@
                     "text": "N/A",
                     "value": "null"
                 }],
-                "valueName": "avg"
+                "valueName": "current"
             }],
             "showTitle": true,
             "title": "Health & Metrics"
@@ -324,7 +324,7 @@
                     "text": "N/A",
                     "value": "null"
                 }],
-                "valueName": "avg"
+                "valueName": "current"
             }, {
                 "cacheTimeout": null,
                 "colorBackground": false,
@@ -394,7 +394,7 @@
                     "text": "N/A",
                     "value": "null"
                 }],
-                "valueName": "avg"
+                "valueName": "current"
             }, {
                 "cacheTimeout": null,
                 "colorBackground": false,
@@ -463,7 +463,7 @@
                     "text": "N/A",
                     "value": "null"
                 }],
-                "valueName": "avg"
+                "valueName": "current"
             }],
             "showTitle": true,
             "title": "Quotas"
@@ -539,7 +539,7 @@
                     "text": "N/A",
                     "value": "null"
                 }],
-                "valueName": "avg"
+                "valueName": "current"
             }],
             "showTitle": true,
             "title": "Data"
