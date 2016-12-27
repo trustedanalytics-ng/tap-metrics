@@ -526,7 +526,7 @@
                 "value": "null"
               }
             ],
-            "valueName": "current"
+            "valueName": "avg"
           }
         ],
         "showTitle": true,
@@ -622,7 +622,7 @@
       }
     ],
     "time": {
-      "from": "now",
+      "from": "now-5m",
       "to": "now"
     },
     "timepicker": {
