@@ -30,560 +30,637 @@
         "version": "1.0.0"
       }
     ],
-        "id": null,
-        "title": "Organization Dashboard",
-        "tags": [],
-        "style": "dark",
-        "timezone": "browser",
-        "editable": false,
-        "hideControls": false,
-        "sharedCrosshair": false,
-        "rows": [{
-            "collapse": false,
-            "editable": true,
-            "height": "100px",
-            "panels": [{
-                "cacheTimeout": null,
-                "colorBackground": false,
-                "colorValue": true,
-                "colors": [
-                    "rgb(68, 157, 68)",
-                    "rgb(68, 157, 68)",
-                    "rgb(68, 157, 68)"
-                ],
-                "datasource": "TAP Prometheus",
-                "editable": true,
-                "error": false,
-                "format": "none",
-                "gauge": {
-                    "maxValue": 100,
-                    "minValue": 0,
-                    "show": false,
-                    "thresholdLabels": false,
-                    "thresholdMarkers": true
-                },
-                "height": "",
-                "id": 1,
-                "interval": null,
-                "isNew": true,
-                "links": [],
-                "mappingType": 1,
-                "mappingTypes": [{
-                    "name": "value to text",
-                    "value": 1
-                }, {
-                    "name": "range to text",
-                    "value": 2
-                }],
-                "maxDataPoints": 100,
-                "nullPointMode": "connected",
-                "nullText": null,
-                "postfix": "  User Applications Running",
-                "postfixFontSize": "50%",
-                "prefix": "",
-                "prefixFontSize": "50%",
-                "rangeMaps": [{
-                    "from": "null",
-                    "text": "N/A",
-                    "to": "null"
-                }],
-                "span": 4,
-                "sparkline": {
-                    "fillColor": "rgba(31, 118, 189, 0.18)",
-                    "full": false,
-                    "lineColor": "rgb(31, 120, 193)",
-                    "show": false
-                },
-                "targets": [{
-                    "expr": "tap_catalog_counts{component='applicationsRunning'}",
-                    "intervalFactor": 2,
-                    "refId": "A",
-                    "step": 2
-                }],
-                "thresholds": "",
-                "title": "",
-                "transparent": true,
-                "type": "singlestat",
-                "valueFontSize": "100%",
-                "valueMaps": [{
-                    "op": "=",
-                    "text": "N/A",
-                    "value": "null"
-                }],
-                "valueName": "current"
-            }, {
-                "cacheTimeout": null,
-                "colorBackground": false,
-                "colorValue": true,
-                "colors": [
-                    "rgb(240,36,19)",
-                    "rgb(240,36,19)",
-                    "rgb(240,36,19)"
-                ],
-                "datasource": "TAP Prometheus",
-                "editable": true,
-                "error": false,
-                "format": "none",
-                "gauge": {
-                    "maxValue": 100,
-                    "minValue": 0,
-                    "show": false,
-                    "thresholdLabels": false,
-                    "thresholdMarkers": true
-                },
-                "height": "",
-                "id": 2,
-                "interval": null,
-                "isNew": true,
-                "links": [],
-                "mappingType": 1,
-                "mappingTypes": [{
-                    "name": "value to text",
-                    "value": 1
-                }, {
-                    "name": "range to text",
-                    "value": 2
-                }],
-                "maxDataPoints": 100,
-                "nullPointMode": "connected",
-                "nullText": null,
-                "postfix": "  User Applications Stopped",
-                "postfixFontSize": "50%",
-                "prefix": "",
-                "prefixFontSize": "50%",
-                "rangeMaps": [{
-                    "from": "null",
-                    "text": "N/A",
-                    "to": "null"
-                }],
-                "span": 4,
-                "sparkline": {
-                    "fillColor": "rgba(31, 118, 189, 0.18)",
-                    "full": false,
-                    "lineColor": "rgb(31, 120, 193)",
-                    "show": false
-                },
-                "targets": [{
-                    "expr": "tap_catalog_counts{component='applicationsDown'}",
-                    "intervalFactor": 2,
-                    "refId": "A",
-                    "step": 2
-                }],
-                "thresholds": "",
-                "title": "",
-                "transparent": true,
-                "type": "singlestat",
-                "valueFontSize": "100%",
-                "valueMaps": [{
-                    "op": "=",
-                    "text": "N/A",
-                    "value": "null"
-                }],
-                "valueName": "current"
-            }, {
-                "cacheTimeout": null,
-                "colorBackground": false,
-                "colorValue": true,
-                "colors": [
-                    "rgb(47,114,190)",
-                    "rgb(47,114,190)",
-                    "rgb(47,114,190)"
-                ],
-                "datasource": "TAP Prometheus",
-                "editable": true,
-                "error": false,
-                "format": "none",
-                "gauge": {
-                    "maxValue": 100,
-                    "minValue": 0,
-                    "show": false,
-                    "thresholdLabels": false,
-                    "thresholdMarkers": true
-                },
-                "height": "",
-                "id": 3,
-                "interval": null,
-                "isNew": true,
-                "links": [],
-                "mappingType": 1,
-                "mappingTypes": [{
-                    "name": "value to text",
-                    "value": 1
-                }, {
-                    "name": "range to text",
-                    "value": 2
-                }],
-                "maxDataPoints": 100,
-                "nullPointMode": "connected",
-                "nullText": null,
-                "postfix": "  Users Accounts",
-                "postfixFontSize": "50%",
-                "prefix": "",
-                "prefixFontSize": "50%",
-                "rangeMaps": [{
-                    "from": "null",
-                    "text": "N/A",
-                    "to": "null"
-                }],
-                "span": 4,
-                "sparkline": {
-                    "fillColor": "rgba(31, 118, 189, 0.18)",
-                    "full": false,
-                    "lineColor": "rgb(31, 120, 193)",
-                    "show": false
-                },
-                "targets": [{
-                    "expr": "tap_usermanagement_counts{component='users'}",
-                    "intervalFactor": 2,
-                    "refId": "A",
-                    "step": 2
-                }],
-                "thresholds": "",
-                "title": "",
-                "transparent": true,
-                "type": "singlestat",
-                "valueFontSize": "100%",
-                "valueMaps": [{
-                    "op": "=",
-                    "text": "N/A",
-                    "value": "null"
-                }],
-                "valueName": "current"
-            }],
-            "showTitle": true,
-            "title": "Health & Metrics"
-        }, {
-            "collapse": false,
-            "editable": true,
-            "height": "100px",
-            "panels": [{
-                "cacheTimeout": null,
-                "colorBackground": false,
-                "colorValue": true,
-                "colors": [
-                    "rgb(47,114,190)",
-                    "rgb(47,114,190)",
-                    "rgb(47,114,190)"
-                ],
-                "datasource": "TAP Prometheus",
-                "editable": true,
-                "error": false,
-                "format": "none",
-                "gauge": {
-                    "maxValue": 100,
-                    "minValue": 0,
-                    "show": false,
-                    "thresholdLabels": false,
-                    "thresholdMarkers": true
-                },
-                "height": "",
-                "id": 4,
-                "interval": null,
-                "isNew": true,
-                "links": [],
-                "mappingType": 1,
-                "mappingTypes": [{
-                    "name": "value to text",
-                    "value": 1
-                }, {
-                    "name": "range to text",
-                    "value": 2
-                }],
-                "maxDataPoints": 100,
-                "nullPointMode": "connected",
-                "nullText": null,
-                "postfix": "  Service Instances Running",
-                "postfixFontSize": "50%",
-                "prefix": "",
-                "prefixFontSize": "50%",
-                "rangeMaps": [{
-                    "from": "null",
-                    "text": "N/A",
-                    "to": "null"
-                }],
-                "span": 4,
-                "sparkline": {
-                    "fillColor": "rgba(31, 118, 189, 0.18)",
-                    "full": false,
-                    "lineColor": "rgb(31, 120, 193)",
-                    "show": false
-                },
-                "targets": [{
-                    "expr": "tap_catalog_counts{component='serviceInstancesRunning'}",
-                    "intervalFactor": 2,
-                    "refId": "A",
-                    "step": 2
-                }],
-                "thresholds": "",
-                "title": "",
-                "transparent": true,
-                "type": "singlestat",
-                "valueFontSize": "100%",
-                "valueMaps": [{
-                    "op": "=",
-                    "text": "N/A",
-                    "value": "null"
-                }],
-                "valueName": "current"
-            }, {
-                "cacheTimeout": null,
-                "colorBackground": false,
-                "colorValue": true,
-                "colors": [
-                    "rgb(47,114,190)",
-                    "rgb(47,114,190)",
-                    "rgb(47,114,190)"
-                ],
-                "datasource": "TAP Prometheus",
-                "decimals": 2,
-                "editable": true,
-                "error": false,
-                "format": "none",
-                "gauge": {
-                    "maxValue": 100,
-                    "minValue": 0,
-                    "show": false,
-                    "thresholdLabels": false,
-                    "thresholdMarkers": true
-                },
-                "height": "",
-                "id": 5,
-                "interval": null,
-                "isNew": true,
-                "links": [],
-                "mappingType": 1,
-                "mappingTypes": [{
-                    "name": "value to text",
-                    "value": 1
-                }, {
-                    "name": "range to text",
-                    "value": 2
-                }],
-                "maxDataPoints": 100,
-                "nullPointMode": "connected",
-                "nullText": null,
-                "postfix": "  GB Memory Used",
-                "postfixFontSize": "50%",
-                "prefix": "",
-                "prefixFontSize": "50%",
-                "rangeMaps": [{
-                    "from": "null",
-                    "text": "N/A",
-                    "to": "null"
-                }],
-                "span": 4,
-                "sparkline": {
-                    "fillColor": "rgba(31, 118, 189, 0.18)",
-                    "full": false,
-                    "lineColor": "rgb(31, 120, 193)",
-                    "show": true
-                },
-                "targets": [{
-                    "expr": "sum(container_memory_usage_bytes{image!=\"\"})/(1073741824)",
-                    "intervalFactor": 2,
-                    "refId": "A",
-                    "step": 2
-                }],
-                "thresholds": "",
-                "title": "",
-                "transparent": true,
-                "type": "singlestat",
-                "valueFontSize": "100%",
-                "valueMaps": [{
-                    "op": "=",
-                    "text": "N/A",
-                    "value": "null"
-                }],
-                "valueName": "current"
-            }, {
-                "cacheTimeout": null,
-                "colorBackground": false,
-                "colorValue": true,
-                "colors": [
-                    "rgb(68,157,68)",
-                    "rgb(68,157,68)",
-                    "rgb(68,157,68)"
-                ],
-                "datasource": "TAP Prometheus",
-                "editable": true,
-                "error": false,
-                "format": "percentunit",
-                "gauge": {
-                    "maxValue": 100,
-                    "minValue": 0,
-                    "show": false,
-                    "thresholdLabels": false,
-                    "thresholdMarkers": true
-                },
-                "height": "",
-                "id": 6,
-                "interval": null,
-                "isNew": true,
-                "links": [],
-                "mappingType": 1,
-                "mappingTypes": [{
-                    "name": "value to text",
-                    "value": 1
-                }, {
-                    "name": "range to text",
-                    "value": 2
-                }],
-                "maxDataPoints": 100,
-                "nullPointMode": "connected",
-                "nullText": null,
-                "postfix": "  CPU Usage",
-                "postfixFontSize": "50%",
-                "prefix": "",
-                "prefixFontSize": "50%",
-                "rangeMaps": [{
-                    "from": "null",
-                    "text": "N/A",
-                    "to": "null"
-                }],
-                "span": 4,
-                "sparkline": {
-                    "fillColor": "rgba(31, 118, 189, 0.18)",
-                    "full": false,
-                    "lineColor": "rgb(31, 120, 193)",
-                    "show": true
-                },
-                "targets": [{
-                    "expr": "sum(sum by (kubernetes_pod_name)  (rate(container_cpu_usage_seconds_total{image!=\"\"}[1m]))) / sum(machine_cpu_cores) ",
-                    "intervalFactor": 2,
-                    "refId": "A",
-                    "step": 2
-                }],
-                "thresholds": "",
-                "title": "",
-                "transparent": true,
-                "type": "singlestat",
-                "valueFontSize": "100%",
-                "valueMaps": [{
-                    "op": "=",
-                    "text": "N/A",
-                    "value": "null"
-                }],
-                "valueName": "current"
-            }],
-            "showTitle": true,
-            "title": "Quotas"
-        }, {
-            "collapse": false,
-            "editable": true,
-            "height": "100px",
-            "panels": [{
-                "cacheTimeout": null,
-                "colorBackground": false,
-                "colorValue": true,
-                "colors": [
-                    "rgb(47,114,190)",
-                    "rgb(47,114,190)",
-                    "rgb(47,114,190)"
-                ],
-                "datasource": "TAP Prometheus",
-                "editable": true,
-                "error": false,
-                "format": "none",
-                "gauge": {
-                    "maxValue": 100,
-                    "minValue": 0,
-                    "show": false,
-                    "thresholdLabels": false,
-                    "thresholdMarkers": true
-                },
-                "height": "",
-                "id": 7,
-                "interval": null,
-                "isNew": true,
-                "links": [],
-                "mappingType": 1,
-                "mappingTypes": [{
-                    "name": "value to text",
-                    "value": 1
-                }, {
-                    "name": "range to text",
-                    "value": 2
-                }],
-                "maxDataPoints": 100,
-                "nullPointMode": "connected",
-                "nullText": null,
-                "postfix": "  Data Sets",
-                "postfixFontSize": "50%",
-                "prefix": "",
-                "prefixFontSize": "50%",
-                "rangeMaps": [{
-                    "from": "null",
-                    "text": "N/A",
-                    "to": "null"
-                }],
-                "span": 4,
-                "sparkline": {
-                    "fillColor": "rgba(31, 118, 189, 0.18)",
-                    "full": false,
-                    "lineColor": "rgb(31, 120, 193)",
-                    "show": false
-                },
-                "targets": [{
-                    "expr": "tap_datacatalog_counts{component='datasets'}",
-                    "intervalFactor": 2,
-                    "refId": "A",
-                    "step": 2
-                }],
-                "thresholds": "",
-                "title": "",
-                "transparent": true,
-                "type": "singlestat",
-                "valueFontSize": "100%",
-                "valueMaps": [{
-                    "op": "=",
-                    "text": "N/A",
-                    "value": "null"
-                }],
-                "valueName": "current"
-            }],
-            "showTitle": true,
-            "title": "Data"
-        }],
-        "time": {
-            "from": "now",
-            "to": "now"
-        },
-        "timepicker": {
-            "refresh_intervals": [
-                "5s",
-                "10s",
-                "30s",
-                "1m",
-                "5m",
-                "15m",
-                "30m",
-                "1h",
-                "2h",
-                "1d"
+    "id": null,
+    "title": "Organization Dashboard",
+    "tags": [],
+    "style": "dark",
+    "timezone": "browser",
+    "editable": false,
+    "hideControls": false,
+    "sharedCrosshair": false,
+    "rows": [
+      {
+        "collapse": false,
+        "editable": true,
+        "height": "100px",
+        "panels": [
+          {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": true,
+            "colors": [
+              "rgb(68, 157, 68)",
+              "rgb(68, 157, 68)",
+              "rgb(68, 157, 68)"
             ],
-            "time_options": [
-                "5m",
-                "15m",
-                "1h",
-                "6h",
-                "12h",
-                "24h",
-                "2d",
-                "7d",
-                "30d"
-            ]
-        },
-        "templating": {
-            "list": []
-        },
-        "annotations": {
-            "list": []
-        },
-        "refresh": "5s",
-        "schemaVersion": 12,
-        "version": 21,
-        "links": [],
-        "gnetId": null
+            "datasource": "TAP Prometheus",
+            "editable": true,
+            "error": false,
+            "format": "none",
+            "gauge": {
+              "maxValue": 100,
+              "minValue": 0,
+              "show": false,
+              "thresholdLabels": false,
+              "thresholdMarkers": true
+            },
+            "height": "",
+            "id": 1,
+            "interval": null,
+            "isNew": true,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+              {
+                "name": "value to text",
+                "value": 1
+              },
+              {
+                "name": "range to text",
+                "value": 2
+              }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "  User Applications Running",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+              {
+                "from": "null",
+                "text": "N/A",
+                "to": "null"
+              }
+            ],
+            "span": 4,
+            "sparkline": {
+              "fillColor": "rgba(31, 118, 189, 0.18)",
+              "full": false,
+              "lineColor": "rgb(31, 120, 193)",
+              "show": false
+            },
+            "targets": [
+              {
+                "expr": "tap_catalog_counts{component='applicationsRunning'}",
+                "intervalFactor": 2,
+                "refId": "A",
+                "step": 2
+              }
+            ],
+            "thresholds": "",
+            "title": "",
+            "transparent": true,
+            "type": "singlestat",
+            "valueFontSize": "100%",
+            "valueMaps": [
+              {
+                "op": "=",
+                "text": "N/A",
+                "value": "null"
+              }
+            ],
+            "valueName": "current"
+          },
+          {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": true,
+            "colors": [
+              "rgb(240,36,19)",
+              "rgb(240,36,19)",
+              "rgb(240,36,19)"
+            ],
+            "datasource": "TAP Prometheus",
+            "editable": true,
+            "error": false,
+            "format": "none",
+            "gauge": {
+              "maxValue": 100,
+              "minValue": 0,
+              "show": false,
+              "thresholdLabels": false,
+              "thresholdMarkers": true
+            },
+            "height": "",
+            "id": 2,
+            "interval": null,
+            "isNew": true,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+              {
+                "name": "value to text",
+                "value": 1
+              },
+              {
+                "name": "range to text",
+                "value": 2
+              }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "  User Applications Stopped",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+              {
+                "from": "null",
+                "text": "N/A",
+                "to": "null"
+              }
+            ],
+            "span": 4,
+            "sparkline": {
+              "fillColor": "rgba(31, 118, 189, 0.18)",
+              "full": false,
+              "lineColor": "rgb(31, 120, 193)",
+              "show": false
+            },
+            "targets": [
+              {
+                "expr": "tap_catalog_counts{component='applicationsDown'}",
+                "intervalFactor": 2,
+                "refId": "A",
+                "step": 2
+              }
+            ],
+            "thresholds": "",
+            "title": "",
+            "transparent": true,
+            "type": "singlestat",
+            "valueFontSize": "100%",
+            "valueMaps": [
+              {
+                "op": "=",
+                "text": "N/A",
+                "value": "null"
+              }
+            ],
+            "valueName": "current"
+          },
+          {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": true,
+            "colors": [
+              "rgb(47,114,190)",
+              "rgb(47,114,190)",
+              "rgb(47,114,190)"
+            ],
+            "datasource": "TAP Prometheus",
+            "editable": true,
+            "error": false,
+            "format": "none",
+            "gauge": {
+              "maxValue": 100,
+              "minValue": 0,
+              "show": false,
+              "thresholdLabels": false,
+              "thresholdMarkers": true
+            },
+            "height": "",
+            "id": 3,
+            "interval": null,
+            "isNew": true,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+              {
+                "name": "value to text",
+                "value": 1
+              },
+              {
+                "name": "range to text",
+                "value": 2
+              }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "  Users Accounts",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+              {
+                "from": "null",
+                "text": "N/A",
+                "to": "null"
+              }
+            ],
+            "span": 4,
+            "sparkline": {
+              "fillColor": "rgba(31, 118, 189, 0.18)",
+              "full": false,
+              "lineColor": "rgb(31, 120, 193)",
+              "show": false
+            },
+            "targets": [
+              {
+                "expr": "tap_usermanagement_counts{component='users'}",
+                "intervalFactor": 2,
+                "refId": "A",
+                "step": 2
+              }
+            ],
+            "thresholds": "",
+            "title": "",
+            "transparent": true,
+            "type": "singlestat",
+            "valueFontSize": "100%",
+            "valueMaps": [
+              {
+                "op": "=",
+                "text": "N/A",
+                "value": "null"
+              }
+            ],
+            "valueName": "current"
+          }
+        ],
+        "showTitle": true,
+        "title": "Health & Metrics"
+      },
+      {
+        "collapse": false,
+        "editable": true,
+        "height": "100px",
+        "panels": [
+          {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": true,
+            "colors": [
+              "rgb(47,114,190)",
+              "rgb(47,114,190)",
+              "rgb(47,114,190)"
+            ],
+            "datasource": "TAP Prometheus",
+            "editable": true,
+            "error": false,
+            "format": "none",
+            "gauge": {
+              "maxValue": 100,
+              "minValue": 0,
+              "show": false,
+              "thresholdLabels": false,
+              "thresholdMarkers": true
+            },
+            "height": "",
+            "id": 4,
+            "interval": null,
+            "isNew": true,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+              {
+                "name": "value to text",
+                "value": 1
+              },
+              {
+                "name": "range to text",
+                "value": 2
+              }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "  Service Instances Running",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+              {
+                "from": "null",
+                "text": "N/A",
+                "to": "null"
+              }
+            ],
+            "span": 4,
+            "sparkline": {
+              "fillColor": "rgba(31, 118, 189, 0.18)",
+              "full": false,
+              "lineColor": "rgb(31, 120, 193)",
+              "show": false
+            },
+            "targets": [
+              {
+                "expr": "tap_catalog_counts{component='serviceInstancesRunning'}",
+                "intervalFactor": 2,
+                "refId": "A",
+                "step": 2
+              }
+            ],
+            "thresholds": "",
+            "title": "",
+            "transparent": true,
+            "type": "singlestat",
+            "valueFontSize": "100%",
+            "valueMaps": [
+              {
+                "op": "=",
+                "text": "N/A",
+                "value": "null"
+              }
+            ],
+            "valueName": "current"
+          },
+          {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": true,
+            "colors": [
+              "rgb(47,114,190)",
+              "rgb(47,114,190)",
+              "rgb(47,114,190)"
+            ],
+            "datasource": "TAP Prometheus",
+            "decimals": 2,
+            "editable": true,
+            "error": false,
+            "format": "none",
+            "gauge": {
+              "maxValue": 100,
+              "minValue": 0,
+              "show": false,
+              "thresholdLabels": false,
+              "thresholdMarkers": true
+            },
+            "height": "",
+            "id": 5,
+            "interval": null,
+            "isNew": true,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+              {
+                "name": "value to text",
+                "value": 1
+              },
+              {
+                "name": "range to text",
+                "value": 2
+              }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "  GB Memory Used",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+              {
+                "from": "null",
+                "text": "N/A",
+                "to": "null"
+              }
+            ],
+            "span": 4,
+            "sparkline": {
+              "fillColor": "rgba(31, 118, 189, 0.18)",
+              "full": false,
+              "lineColor": "rgb(31, 120, 193)",
+              "show": true
+            },
+            "targets": [
+              {
+                "expr": "sum(container_memory_usage_bytes{image!=\"\"})/(1073741824)",
+                "intervalFactor": 2,
+                "refId": "A",
+                "step": 2
+              }
+            ],
+            "thresholds": "",
+            "title": "",
+            "transparent": true,
+            "type": "singlestat",
+            "valueFontSize": "100%",
+            "valueMaps": [
+              {
+                "op": "=",
+                "text": "N/A",
+                "value": "null"
+              }
+            ],
+            "valueName": "current"
+          },
+          {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": true,
+            "colors": [
+              "rgb(68,157,68)",
+              "rgb(68,157,68)",
+              "rgb(68,157,68)"
+            ],
+            "datasource": "TAP Prometheus",
+            "editable": true,
+            "error": false,
+            "format": "percentunit",
+            "gauge": {
+              "maxValue": 100,
+              "minValue": 0,
+              "show": false,
+              "thresholdLabels": false,
+              "thresholdMarkers": true
+            },
+            "height": "",
+            "id": 6,
+            "interval": null,
+            "isNew": true,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+              {
+                "name": "value to text",
+                "value": 1
+              },
+              {
+                "name": "range to text",
+                "value": 2
+              }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "  CPU Usage",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+              {
+                "from": "null",
+                "text": "N/A",
+                "to": "null"
+              }
+            ],
+            "span": 4,
+            "sparkline": {
+              "fillColor": "rgba(31, 118, 189, 0.18)",
+              "full": false,
+              "lineColor": "rgb(31, 120, 193)",
+              "show": true
+            },
+            "targets": [
+              {
+                "expr": "sum(sum by (kubernetes_pod_name)  (rate(container_cpu_usage_seconds_total{image!=\"\"}[1m]))) / sum(machine_cpu_cores) ",
+                "intervalFactor": 2,
+                "refId": "A",
+                "step": 2
+              }
+            ],
+            "thresholds": "",
+            "title": "",
+            "transparent": true,
+            "type": "singlestat",
+            "valueFontSize": "100%",
+            "valueMaps": [
+              {
+                "op": "=",
+                "text": "N/A",
+                "value": "null"
+              }
+            ],
+            "valueName": "current"
+          }
+        ],
+        "showTitle": true,
+        "title": "Quotas"
+      },
+      {
+        "collapse": false,
+        "editable": true,
+        "height": "100px",
+        "panels": [
+          {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": true,
+            "colors": [
+              "rgb(47,114,190)",
+              "rgb(47,114,190)",
+              "rgb(47,114,190)"
+            ],
+            "datasource": "TAP Prometheus",
+            "editable": true,
+            "error": false,
+            "format": "none",
+            "gauge": {
+              "maxValue": 100,
+              "minValue": 0,
+              "show": false,
+              "thresholdLabels": false,
+              "thresholdMarkers": true
+            },
+            "height": "",
+            "id": 7,
+            "interval": null,
+            "isNew": true,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+              {
+                "name": "value to text",
+                "value": 1
+              },
+              {
+                "name": "range to text",
+                "value": 2
+              }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "  Data Sets",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+              {
+                "from": "null",
+                "text": "N/A",
+                "to": "null"
+              }
+            ],
+            "span": 4,
+            "sparkline": {
+              "fillColor": "rgba(31, 118, 189, 0.18)",
+              "full": false,
+              "lineColor": "rgb(31, 120, 193)",
+              "show": false
+            },
+            "targets": [
+              {
+                "expr": "tap_datacatalog_counts{component='datasets'}",
+                "intervalFactor": 2,
+                "refId": "A",
+                "step": 2
+              }
+            ],
+            "thresholds": "",
+            "title": "",
+            "transparent": true,
+            "type": "singlestat",
+            "valueFontSize": "100%",
+            "valueMaps": [
+              {
+                "op": "=",
+                "text": "N/A",
+                "value": "null"
+              }
+            ],
+            "valueName": "current"
+          }
+        ],
+        "showTitle": true,
+        "title": "Data"
+      }
+    ],
+    "time": {
+      "from": "now",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ]
+    },
+    "templating": {
+      "list": []
+    },
+    "annotations": {
+      "list": []
+    },
+    "refresh": "5s",
+    "schemaVersion": 12,
+    "version": 21,
+    "links": [],
+    "gnetId": null
   },
   "overwrite": true,
   "inputs": [
