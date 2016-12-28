@@ -1,4 +1,4 @@
-FROM grafana/grafana:3.1.1
+FROM grafana/grafana:4.0.2
 
 RUN apt-get -y update && apt-get -y install curl
 
