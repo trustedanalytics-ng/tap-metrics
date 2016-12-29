@@ -3,6 +3,7 @@ FROM grafana/grafana:4.0.2
 RUN apt-get -y update && apt-get -y install curl
 
 ADD init-and-run.sh /
+ADD init.sh /
 
 ADD init_content /grafana_init_static_content
 
