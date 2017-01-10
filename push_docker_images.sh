@@ -29,6 +29,7 @@ function push() {
 echo -e "\n ****** Pushing Docker images ******\n\n"
 
 push metrics-grafana:$TAG
+push metrics-grafana-uaa-syncer:$TAG
 push metrics-ceph-exporter:$TAG
 
 echo -e "\n\n ****** DONE: Pushing Docker images ******\n"

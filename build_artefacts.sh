@@ -36,5 +36,8 @@ cd ./ceph_exporter/
 ./build_ceph_exporter.sh
 cd -
 
+
+build "Grafana-UAA synchronizer" grafana_uaa_synchronizer
+
 echo -e "\n\n *** DONE, OK ***\n"
 

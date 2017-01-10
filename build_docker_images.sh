@@ -34,6 +34,7 @@ function build() {
 echo -e "\n\n ****** Building Docker images ******\n"
 
 build "Grafana preconfigured" grafana metrics-grafana:$TAG
+build "Grafana-UAA syncer" grafana_uaa_synchronizer metrics-grafana-uaa-syncer:$TAG
 build "CEPH metrics exporter" ceph_exporter metrics-ceph-exporter:$TAG
 
 echo -e "\n\n *** DONE, OK ***\n"

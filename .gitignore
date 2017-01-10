@@ -11,3 +11,5 @@
 presenter/presenter
 collectors/tap_catalog/tap_catalog
 ceph_exporter/ceph_exporter
+grafana_uaa_synchronizer/grafana_uaa_synchronizer
+
