@@ -52,6 +52,14 @@ func (user *UaaUser) isAdmin() bool {
 	return false
 }
 
+func (user *UaaUser) email() string {
+	if len(user.Emails) == 0 {
+		panic("No email for user: " + user.UserName)
+		// ^^^ quite heavy but in such case we need some manual action
+	}
+	return user.Emails[0].Value
+}
+
 type UaaOrganization struct{}
 
 type UaaClient interface {

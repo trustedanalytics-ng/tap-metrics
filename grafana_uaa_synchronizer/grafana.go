@@ -27,7 +27,9 @@ func (gso *GrafanaSyncOperator) SyncUsers(currentUsers []UaaUser, uaaClient UaaC
 		log.Println("Error when recieving Grafana users", err)
 		return err
 	}
-	log.Printf("Grafana have %d users", len(users))
+
+	users = filterOutGrafanaLocalAdmin(users)
+	log.Printf("Grafana have %d users (excluding local admin)", len(users))
 
 	err = gso.FixMissingUsersAndFixAdminRoles(currentUsers, users)
 	if err != nil {
@@ -36,17 +38,22 @@ func (gso *GrafanaSyncOperator) SyncUsers(currentUsers []UaaUser, uaaClient UaaC
 	}
 
 	log.Println("Removing zombie users from Grafana")
-	return gso.RemoveZombieUsersFromGrafana(currentUsers, users)
+	err = gso.RemoveZombieUsersFromGrafana(currentUsers, users)
+	if err != nil {
+		log.Println("Error when removing zombie users from Grafana", err)
+		return err
+	}
+	return nil
 }
 
 func (gso *GrafanaSyncOperator) FixMissingUsersAndFixAdminRoles(uaaUsers []UaaUser, grafanaUsers []GrafanaUser) error {
 	guMap := make(map[string]*GrafanaUser)
 	for i := range grafanaUsers {
 		gu := &grafanaUsers[i]
-		guMap[gu.Login] = gu
+		guMap[gu.Email] = gu
 	}
 	for _, uu := range uaaUsers {
-		gu, present := guMap[uu.UserName]
+		gu, present := guMap[uu.email()]
 		if !present {
 			err := gso.CreateUser(&uu)
 			if err != nil {
@@ -67,10 +74,10 @@ func (gso *GrafanaSyncOperator) FixMissingUsersAndFixAdminRoles(uaaUsers []UaaUs
 func (gso *GrafanaSyncOperator) RemoveZombieUsersFromGrafana(uaaUsers []UaaUser, grafanaUsers []GrafanaUser) error {
 	usersCache := make(map[string]bool)
 	for i := range uaaUsers {
-		usersCache[uaaUsers[i].UserName] = true
+		usersCache[uaaUsers[i].email()] = true
 	}
 	for _, gu := range grafanaUsers {
-		_, present := usersCache[gu.Login]
+		_, present := usersCache[gu.Email]
 		if !present {
 			err := gso.client.DeleteUser(&gu)
 			if err != nil {
@@ -95,6 +102,15 @@ func (gso *GrafanaSyncOperator) CreateUser(user *UaaUser) error {
 func (gso *GrafanaSyncOperator) SyncOrganizations(currentOrganizations []UaaOrganization, uaaClient UaaClient) error {
 	// TODO - when multi-org will be in place
 	return nil
+}
+
+func filterOutGrafanaLocalAdmin(users []GrafanaUser) []GrafanaUser {
+	for i := range users {
+		if users[i].Email == "admin@localhost" {
+			return append(users[:i], users[i + 1:]...)
+		}
+	}
+	return users
 }
 
 func NewGrafanaSyncOperatorFromEnv() (*GrafanaSyncOperator, error) {
@@ -158,8 +174,8 @@ func (gc *GrafanaClient) GetUsers() ([]GrafanaUser, error) {
 func (gc *GrafanaClient) CreateUser(uUser *UaaUser) (int, error) {
 	log.Println("In Grafana creating user: " + uUser.UserName)
 	form := dtos.AdminCreateUserForm{
-		Email: uUser.UserName,
-		Login: uUser.UserName,
+		Email: uUser.email(),
+		Login: uUser.email(),
 		Name: uUser.UserName,
 		Password: RandomPassword(16),
 	}
