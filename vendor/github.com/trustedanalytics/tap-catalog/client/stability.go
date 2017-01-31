@@ -13,11 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package models
+package client
 
-type AuditTrail struct {
-	CreatedOn     int64  `json:"createdOn"`
-	CreatedBy     string `json:"createdBy"`
-	LastUpdatedOn int64  `json:"lastUpdatedOn"`
-	LastUpdateBy  string `json:"lastUpdateBy"`
+import (
+	"fmt"
+	"net/http"
+
+	brokerHttp "github.com/trustedanalytics/tap-go-common/http"
+
+	"github.com/trustedanalytics/tap-catalog/models"
+)
+
+func (c *TapCatalogApiConnector) CheckStateStability() (models.StateStability, int, error) {
+	connector := c.getApiConnector(fmt.Sprintf("%s/%s", c.Address, stableState))
+	result := models.StateStability{}
+	status, err := brokerHttp.GetModel(connector, http.StatusOK, &result)
+	return result, status, err
 }

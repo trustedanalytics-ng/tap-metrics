@@ -1,128 +1,61 @@
+/**
+ * Copyright (c) 2016 Intel Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package app
 
 import (
-	"bytes"
-	"fmt"
-	"log"
-	"net/http"
+	"sync"
 
 	"github.com/streadway/amqp"
+
+	"github.com/trustedanalytics/tap-go-common/queue"
 	"github.com/trustedanalytics/tap-go-common/util"
+	"github.com/trustedanalytics/tap-image-factory/models"
 )
 
-func failReceiverOnError(err error, msg string) {
-	if err != nil {
-		log.Fatalf("%s: %s", msg, err)
-		panic(fmt.Sprintf("%s: %s", msg, err))
-	}
-}
+const (
+	maxSimultaneousRoutines = 1
+)
 
-func StartConsumer(ctx Context) {
-	logger.Info("Connecting to: " + GetQueueConnectionString())
-	conn, err := amqp.Dial(GetQueueConnectionString())
-	failReceiverOnError(err, "Failed to connect to Queue on address: "+GetQueueConnectionString())
+func StartConsumer(waitGroup *sync.WaitGroup) {
+	waitGroup.Add(1)
+
+	ch, conn := queue.GetConnectionChannel()
+	queue.CreateExchangeWithQueueByRoutingKeys(ch, models.IMAGE_FACTORY_QUEUE_NAME, []string{models.IMAGE_FACTORY_IMAGE_ROUTING_KEY})
+	queue.ConsumeMessages(ch, handleMessage, models.IMAGE_FACTORY_QUEUE_NAME, maxSimultaneousRoutines)
+
 	defer conn.Close()
-
-	ch, err := conn.Channel()
-	failReceiverOnError(err, "Failed to open a channel")
 	defer ch.Close()
 
-	/* DELETE THIS AFTER MONITOR IS IMPLEMENTED */
-	err = ch.ExchangeDeclare(
-		"tap.image-factory", // name
-		"direct",            // type
-		true,                // durable
-		false,               // auto-deleted
-		false,               // internal
-		false,               // no-wait
-		nil,                 // arguments
-	)
-	failReceiverOnError(err, "Failed to declare an exchange")
-
-	q, err := ch.QueueDeclare(
-		GetQueueName(), // name
-		true,           // durable
-		false,          // delete when usused
-		true,           // exclusive
-		false,          // no-wait
-		nil,            // arguments
-	)
-	failReceiverOnError(err, "Failed to declare a queue")
-
-	err = ch.QueueBind(
-		q.Name,              // queue name
-		"tap.image-factory", // routing key
-		"tap.image-factory", // exchange
-		false,               // no-wait
-		nil,                 // arguments
-	)
-	failReceiverOnError(err, "Failed to bind a queue")
-	/* DELETE THIS AFTER MONITOR IS IMPLEMENTED */
-
-	msgs, err := ch.Consume(
-		q.Name, // queue
-		"",     // consumer - empty means generate unique id
-		true,   // auto-ack
-		true,   // exclusive
-		false,  // no-local
-		false,  // no-wait
-		nil,    // args
-	)
-	failReceiverOnError(err, "Failed to register a consumer")
-
-	go func() {
-		for m := range msgs {
-			handleMessage(ctx, m)
-		}
-	}()
-
-	forever := make(chan bool)
-	<-forever
+	logger.Info("Consuming stopped. Queue:", models.IMAGE_FACTORY_QUEUE_NAME)
+	waitGroup.Done()
 }
 
-func handleMessage(c Context, msg amqp.Delivery) {
-	msg_json := BuildImagePostRequest{}
-	err := util.ReadJsonFromByte(msg.Body, &msg_json)
+func handleMessage(msg amqp.Delivery) {
+	buildImageRequest := models.BuildImagePostRequest{}
+	err := util.ReadJsonFromByte(msg.Body, &buildImageRequest)
 	if err != nil {
-		logger.Error(err.Error())
-		return
-	}
-	c.updateImageWithState(msg_json.ImageId, "BUILDING")
-	imgDetails, _, err := c.TapCatalogApiConnector.GetImage(msg_json.ImageId)
-	if err != nil {
-		c.updateImageWithState(msg_json.ImageId, "ERROR")
 		logger.Error(err.Error())
 		return
 	}
 
-	buffer := bytes.Buffer{}
-	err = c.BlobStoreConnector.GetBlob(imgDetails.Id, &buffer)
-	if err != nil {
-		c.updateImageWithState(msg_json.ImageId, "ERROR")
-		logger.Error(err.Error())
-		return
+	if err := BuildAndPushImage(buildImageRequest.ImageId); err != nil {
+		logger.Error("Building image error:", err)
 	}
-	tag := GetHubAddressWithoutProtocol() + "/" + imgDetails.Id
-
-	err = c.DockerConnector.CreateImage(bytes.NewReader(buffer.Bytes()), imgDetails.Type, tag)
+	err = msg.Ack(false)
 	if err != nil {
-		c.updateImageWithState(msg_json.ImageId, "ERROR")
-		logger.Error(err.Error())
-		return
-	}
-	err = c.DockerConnector.PushImage(tag)
-	if err != nil {
-		c.updateImageWithState(msg_json.ImageId, "ERROR")
-		logger.Error(err.Error())
-		return
-	}
-	c.updateImageWithState(msg_json.ImageId, "READY")
-	status, err := c.BlobStoreConnector.DeleteBlob(imgDetails.Id)
-	if err != nil {
-		logger.Error(err.Error())
-		return
-	}
-	if status != http.StatusNoContent {
-		logger.Warning("Blob removal failed. Actual status %v", status)
+		logger.Error("ACK error:", err)
 	}
 }
