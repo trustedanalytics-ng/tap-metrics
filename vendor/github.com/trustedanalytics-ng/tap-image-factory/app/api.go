@@ -22,11 +22,11 @@ import (
 	"github.com/gocraft/web"
 	"github.com/op/go-logging"
 
-	blobStoreApi "github.com/trustedanalytics/tap-blob-store/client"
-	catalogApi "github.com/trustedanalytics/tap-catalog/client"
-	commonLogger "github.com/trustedanalytics/tap-go-common/logger"
-	"github.com/trustedanalytics/tap-go-common/util"
-	"github.com/trustedanalytics/tap-image-factory/models"
+	blobStoreApi "github.com/trustedanalytics-ng/tap-blob-store/client"
+	catalogApi "github.com/trustedanalytics-ng/tap-catalog/client"
+	commonLogger "github.com/trustedanalytics-ng/tap-go-common/logger"
+	"github.com/trustedanalytics-ng/tap-go-common/util"
+	"github.com/trustedanalytics-ng/tap-image-factory/models"
 )
 
 var logger = initLogger()

@@ -69,5 +69,5 @@
 			"revisionTime": "2016-04-11T19:08:41Z"
 		}
 	],
-	"rootPath": "github.com/trustedanalytics/tap-metrics/ceph_exporter/external_repo"
+	"rootPath": "github.com/trustedanalytics-ng/tap-metrics/ceph_exporter/external_repo"
 }

@@ -20,9 +20,9 @@ import (
 
 	"github.com/streadway/amqp"
 
-	"github.com/trustedanalytics/tap-go-common/queue"
-	"github.com/trustedanalytics/tap-go-common/util"
-	"github.com/trustedanalytics/tap-image-factory/models"
+	"github.com/trustedanalytics-ng/tap-go-common/queue"
+	"github.com/trustedanalytics-ng/tap-go-common/util"
+	"github.com/trustedanalytics-ng/tap-image-factory/models"
 )
 
 const (

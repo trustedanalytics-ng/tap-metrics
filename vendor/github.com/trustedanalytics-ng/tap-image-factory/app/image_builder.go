@@ -31,8 +31,8 @@ import (
 	"github.com/docker/docker/pkg/jsonmessage"
 	"golang.org/x/net/context"
 
-	catalogModels "github.com/trustedanalytics/tap-catalog/models"
-	"github.com/trustedanalytics/tap-image-factory/models"
+	catalogModels "github.com/trustedanalytics-ng/tap-catalog/models"
+	"github.com/trustedanalytics-ng/tap-image-factory/models"
 )
 
 var (

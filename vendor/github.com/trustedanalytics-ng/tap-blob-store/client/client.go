@@ -21,8 +21,8 @@ import (
 	"mime/multipart"
 	"net/http"
 
-	brokerHttp "github.com/trustedanalytics/tap-go-common/http"
-	commonLogger "github.com/trustedanalytics/tap-go-common/logger"
+	brokerHttp "github.com/trustedanalytics-ng/tap-go-common/http"
+	commonLogger "github.com/trustedanalytics-ng/tap-go-common/logger"
 )
 
 var (

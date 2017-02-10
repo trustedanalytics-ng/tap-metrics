@@ -23,8 +23,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/trustedanalytics/tap-catalog/builder"
-	catalogModels "github.com/trustedanalytics/tap-catalog/models"
+	"github.com/trustedanalytics-ng/tap-catalog/builder"
+	catalogModels "github.com/trustedanalytics-ng/tap-catalog/models"
 )
 
 type ImageProcessingErr struct {
